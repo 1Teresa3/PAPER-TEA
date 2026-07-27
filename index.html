@@ -99,10 +99,10 @@
       /* Header - Logo ganz links */
       header {
         background-color: var(--secondary-color);
-        padding: 1rem 0; /* Oberes/unteres Padding behalten */
+        padding: 1rem 0;
         border-bottom: 1px solid #dcd6cc;
-        position: relative; /* Für absolute Positionierung des Logos */
-        min-height: 60px; /* Mindesthöhe, um Platz für das Logo zu sichern */
+        position: relative;
+        min-height: 60px;
       }
 
       .header-content {
@@ -119,9 +119,9 @@
         color: var(--dark-text);
         text-decoration: none;
         position: absolute;
-        left: 2rem; /* Abstand vom linken Rand */
+        left: 2rem;
         top: 50%;
-        transform: translateY(-50%); /* Zentriert vertikal */
+        transform: translateY(-50%);
       }
 
       .logo .italic {
@@ -278,7 +278,7 @@
       /* Responsive */
       @media (max-width: 768px) {
         .logo {
-          left: 1rem; /* Weniger Abstand auf Mobilgeräten */
+          left: 1rem;
           font-size: 1.2rem;
         }
 
@@ -328,41 +328,10 @@
       </div>
     </header>
 
-    <!-- Marquee Banner - Durchgängig -->
+    <!-- Marquee Banner - Durchgängig mit JavaScript-Loop -->
     <div class="marquee-container">
       <div class="marquee-wrapper">
-        <div class="marquee">
-          <!-- DREIFACHER INHALT für nahtlosen Loop -->
-          <span>💛 Mag Freundlichkeit</span>
-          <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
-          <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
-          <span>💖 Ist stolz darauf wer ihre Freunde sind</span>
-          <span>💭 Ist der Meinung Neid ist ein falsch verstandenes Gefühl</span>
-          <span>🎙️ Bevorzugt Podcasts über Wirtschaftskriminalität</span>
-          <span>🍜 Bestellt bei Marubi immer die 71</span>
-          <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
-          <span>🧀 J'aime le fromage</span>
-          <!-- Zweiter Durchlauf -->
-          <span>💛 Mag Freundlichkeit</span>
-          <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
-          <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
-          <span>💖 Ist stolz darauf wer ihre Freunde sind</span>
-          <span>💭 Ist der Meinung Neid ist ein falsch verstandenes Gefühl</span>
-          <span>🎙️ Bevorzugt Podcasts über Wirtschaftskriminalität</span>
-          <span>🍜 Bestellt bei Marubi immer die 71</span>
-          <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
-          <span>🧀 J'aime le fromage</span>
-          <!-- Dritter Durchlauf -->
-          <span>💛 Mag Freundlichkeit</span>
-          <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
-          <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
-          <span>💖 Ist stolz darauf wer ihre Freunde sind</span>
-          <span>💭 Ist der Meinung Neid ist ein falsch verstandenes Gefühl</span>
-          <span>🎙️ Bevorzugt Podcasts über Wirtschaftskriminalität</span>
-          <span>🍜 Bestellt bei Marubi immer die 71</span>
-          <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
-          <span>🧀 J'aime le fromage</span>
-        </div>
+        <div class="marquee" id="marquee-text"></div>
       </div>
     </div>
 
@@ -392,50 +361,10 @@
       </section>
     </main>
 
-    <!-- Bild-Laufband - Vollbreite -->
+    <!-- Bild-Laufband - Vollbreite mit JavaScript-Loop -->
     <div class="image-marquee-fullwidth">
       <div class="image-marquee-wrapper">
-        <div class="image-marquee">
-          <!-- Bilder B1-B7 -->
-          <img src="images/B1.jpeg" alt="Bild 1" class="marquee-image" />
-          <img src="images/B2.jpeg" alt="Bild 2" class="marquee-image" />
-          <img src="images/B3.jpeg" alt="Bild 3" class="marquee-image" />
-          <img src="images/B4.jpeg" alt="Bild 4" class="marquee-image" />
-          <img src="images/B5.jpeg" alt="Bild 5" class="marquee-image" />
-          <img src="images/B6.jpeg" alt="Bild 6" class="marquee-image" />
-          <img src="images/B7.jpeg" alt="Bild 7" class="marquee-image" />
-          <!-- Bilder B10-B20 -->
-          <img src="images/B10.jpeg" alt="Bild 10" class="marquee-image" />
-          <img src="images/B11.jpeg" alt="Bild 11" class="marquee-image" />
-          <img src="images/B12.jpeg" alt="Bild 12" class="marquee-image" />
-          <img src="images/B13.jpeg" alt="Bild 13" class="marquee-image" />
-          <img src="images/B14.jpeg" alt="Bild 14" class="marquee-image" />
-          <img src="images/B15.jpeg" alt="Bild 15" class="marquee-image" />
-          <img src="images/B16.jpeg" alt="Bild 16" class="marquee-image" />
-          <img src="images/B17.jpeg" alt="Bild 17" class="marquee-image" />
-          <img src="images/B18.jpeg" alt="Bild 18" class="marquee-image" />
-          <img src="images/B19.jpeg" alt="Bild 19" class="marquee-image" />
-          <img src="images/B20.jpeg" alt="Bild 20" class="marquee-image" />
-          <!-- Duplizieren für nahtlosen Loop -->
-          <img src="images/B1.jpeg" alt="Bild 1" class="marquee-image" />
-          <img src="images/B2.jpeg" alt="Bild 2" class="marquee-image" />
-          <img src="images/B3.jpeg" alt="Bild 3" class="marquee-image" />
-          <img src="images/B4.jpeg" alt="Bild 4" class="marquee-image" />
-          <img src="images/B5.jpeg" alt="Bild 5" class="marquee-image" />
-          <img src="images/B6.jpeg" alt="Bild 6" class="marquee-image" />
-          <img src="images/B7.jpeg" alt="Bild 7" class="marquee-image" />
-          <img src="images/B10.jpeg" alt="Bild 10" class="marquee-image" />
-          <img src="images/B11.jpeg" alt="Bild 11" class="marquee-image" />
-          <img src="images/B12.jpeg" alt="Bild 12" class="marquee-image" />
-          <img src="images/B13.jpeg" alt="Bild 13" class="marquee-image" />
-          <img src="images/B14.jpeg" alt="Bild 14" class="marquee-image" />
-          <img src="images/B15.jpeg" alt="Bild 15" class="marquee-image" />
-          <img src="images/B16.jpeg" alt="Bild 16" class="marquee-image" />
-          <img src="images/B17.jpeg" alt="Bild 17" class="marquee-image" />
-          <img src="images/B18.jpeg" alt="Bild 18" class="marquee-image" />
-          <img src="images/B19.jpeg" alt="Bild 19" class="marquee-image" />
-          <img src="images/B20.jpeg" alt="Bild 20" class="marquee-image" />
-        </div>
+        <div class="image-marquee" id="image-marquee"></div>
       </div>
     </div>
 
@@ -484,6 +413,55 @@
             }
           }
         });
+      });
+
+      // Marquee-Inhalt als Array definieren
+      const marqueeItems = [
+        "💛 Mag Freundlichkeit",
+        "🚧 Musste lernen Grenzen zu setzen und dafür einzustehen",
+        "🌙 Liebt es in den Nachthimmel zu schauen",
+        "💖 Ist stolz darauf wer ihre Freunde sind",
+        "💭 Ist der Meinung Neid ist ein falsch verstandenes Gefühl",
+        "🎙️ Bevorzugt Podcasts über Wirtschaftskriminalität",
+        "🍜 Bestellt bei Marubi immer die 71",
+        "📻 Ist ein Fan von Deutschlandfunk und ARTE",
+        "🧀 J'aime le fromage"
+      ];
+
+      // Bilder-Array (B1-B7, B10-B20 - ohne B8 und B9)
+      const imageFiles = [
+        "B1", "B2", "B3", "B4", "B5", "B6", "B7",
+        "B10", "B11", "B12", "B13", "B14", "B15", "B16", "B17", "B18", "B19", "B20"
+      ];
+
+      // Funktion zum Befüllen des Text-Marquee mit 3 Durchläufen
+      function setupTextMarquee() {
+        const marqueeDiv = document.getElementById("marquee-text");
+        let html = "";
+        for (let i = 0; i < 3; i++) {
+          marqueeItems.forEach(item => {
+            html += `<span>${item}</span>`;
+          });
+        }
+        marqueeDiv.innerHTML = html;
+      }
+
+      // Funktion zum Befüllen des Bild-Marquee mit 3 Durchläufen
+      function setupImageMarquee() {
+        const imageMarqueeDiv = document.getElementById("image-marquee");
+        let html = "";
+        for (let i = 0; i < 3; i++) {
+          imageFiles.forEach(file => {
+            html += `<img src="images/${file}.jpeg" alt="Bild ${file}" class="marquee-image" />`;
+          });
+        }
+        imageMarqueeDiv.innerHTML = html;
+      }
+
+      // Aufruf beim Laden der Seite
+      window.addEventListener("DOMContentLoaded", () => {
+        setupTextMarquee();
+        setupImageMarquee();
       });
     </script>
   </body>
