@@ -97,7 +97,6 @@
         max-width: 1200px;
         margin: 2rem auto;
         padding: 0 2rem;
-        text-align: center;
       }
 
       .page-title {
@@ -106,12 +105,23 @@
         font-weight: 300;
         color: var(--dark-text);
         margin-bottom: 2rem;
+        text-align: left;
+      }
+
+      /* Platzhalter-Text */
+      .placeholder-text {
+        color: var(--dark-text);
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-bottom: 2rem;
+        text-align: left;
+        max-width: 800px;
       }
 
       /* Button */
       .button-container {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         margin-top: 2rem;
       }
 
@@ -131,6 +141,79 @@
       .button:hover {
         background-color: #b8a894;
         transform: translateY(-2px);
+      }
+
+      /* Fotogalerie */
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .gallery-item {
+        position: relative;
+        cursor: pointer;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .gallery-item:hover {
+        transform: scale(1.03);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Lightbox für vergrößerte Bilder */
+      .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+      }
+
+      .lightbox.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .lightbox-content {
+        max-width: 90%;
+        max-height: 90%;
+      }
+
+      .lightbox-content img {
+        max-width: 100%;
+        max-height: 80vh;
+        display: block;
+        border-radius: 8px;
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        background: none;
+        border: none;
       }
 
       /* Footer */
@@ -156,6 +239,15 @@
         .marquee-content span {
           font-size: 0.9rem;
           margin-right: 1.5rem;
+        }
+
+        .gallery {
+          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+          gap: 0.75rem;
+        }
+
+        .button-container {
+          justify-content: center;
         }
       }
     </style>
@@ -189,7 +281,7 @@
         <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
         <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
         <span>💖 Ist stolz darauf wer ihre Freunde sind</span>
-        <span>💭 Ist der Meinung Neid ist ein falsch verstandenes Gefühl</span>
+        <span>💭 Ist der Meinung Neid ist ein falsch standenes Gefühl</span>
         <span>🎙️ Bevorzugt Podcasts über Wirtschaftskriminalität</span>
         <span>🍜 Bestellt bei Marubi immer die 71</span>
         <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
@@ -200,10 +292,66 @@
     <!-- Main Content -->
     <main>
       <h1 class="page-title">Fotografie</h1>
+
+      <!-- Platzhalter-Text -->
+      <p class="placeholder-text">
+        [Hier steht später dein Text zur Fotografie. Dies ist ein Platzhalter, um das Layout zu testen.
+        Du kannst diesen Text einfach durch deinen eigenen Inhalt ersetzen.]
+      </p>
+
+      <!-- Fotogalerie -->
+      <div class="gallery">
+        <div class="gallery-item" onclick="openLightbox('fotos/foto1.jpeg')">
+          <img src="fotos/foto1.jpeg" alt="Foto 1" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox('fotos/foto2.jpeg')">
+          <img src="fotos/foto2.jpeg" alt="Foto 2" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox('fotos/foto3.jpeg')">
+          <img src="fotos/foto3.jpeg" alt="Foto 3" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox('fotos/foto4.jpeg')">
+          <img src="fotos/foto4.jpeg" alt="Foto 4" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox('fotos/foto5.jpeg')">
+          <img src="fotos/foto5.jpeg" alt="Foto 5" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox('fotos/foto6.jpeg')">
+          <img src="fotos/foto6.jpeg" alt="Foto 6" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox('fotos/foto7.jpeg')">
+          <img src="fotos/foto7.jpeg" alt="Foto 7" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox('fotos/foto8.jpeg')">
+          <img src="fotos/foto8.jpeg" alt="Foto 8" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox('fotos/foto9.jpeg')">
+          <img src="fotos/foto9.jpeg" alt="Foto 9" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox('fotos/foto10.jpeg')">
+          <img src="fotos/foto10.jpeg" alt="Foto 10" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox('fotos/foto11.jpeg')">
+          <img src="fotos/foto11.jpeg" alt="Foto 11" />
+        </div>
+        <div class="gallery-item" onclick="openLightbox('fotos/foto12.jpeg')">
+          <img src="fotos/foto12.jpeg" alt="Foto 12" />
+        </div>
+      </div>
+
+      <!-- Zurück-Button -->
       <div class="button-container">
         <a href="index.html" class="button">Zurück zur Hauptseite</a>
       </div>
     </main>
+
+    <!-- Lightbox für vergrößerte Bilder -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" onclick="closeLightbox()">×</button>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="Vergrößertes Foto" />
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer></footer>
@@ -213,6 +361,26 @@
       if (localStorage.getItem("passwordConfirmed") !== "true") {
         window.location.href = "index.html";
       }
+
+      // Lightbox-Funktionen
+      function openLightbox(imageSrc) {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        lightboxImg.src = imageSrc;
+        lightbox.classList.add("active");
+      }
+
+      function closeLightbox() {
+        const lightbox = document.getElementById("lightbox");
+        lightbox.classList.remove("active");
+      }
+
+      // Schließe Lightbox beim Klicken außerhalb des Bildes
+      document.getElementById("lightbox").addEventListener("click", function(e) {
+        if (e.target === this) {
+          closeLightbox();
+        }
+      });
     </script>
   </body>
 </html>
