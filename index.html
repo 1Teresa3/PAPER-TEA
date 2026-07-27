@@ -151,7 +151,7 @@
       /* Marquee Banner - Bilder (unten) */
       .marquee-image-container {
         background-color: #c8d0c8;
-        padding: 2rem 0; /* Mehr Padding für größere Bilder */
+        padding: 2rem 0;
         overflow: hidden;
         white-space: nowrap;
         position: relative;
@@ -160,14 +160,14 @@
 
       .marquee-image-content {
         display: inline-block;
-        animation: marquee 45s linear infinite; /* Etwas langsamer für größere Bilder */
+        animation: marquee 45s linear infinite;
         white-space: nowrap;
       }
 
       .marquee-image-content img {
-        height: 100px; /* Größere Bilder */
+        height: 100px;
         width: auto;
-        margin-right: 2.5rem; /* Mehr Abstand zwischen Bildern */
+        margin-right: 2.5rem;
         vertical-align: middle;
         border-radius: 4px;
         object-fit: contain;
@@ -256,7 +256,7 @@
         }
 
         .marquee-image-content img {
-          height: 70px; /* Etwas kleiner auf Mobilgeräten */
+          height: 70px;
           margin-right: 1.5rem;
         }
 
@@ -286,14 +286,13 @@
     <!-- Header -->
     <header>
       <div class="header-content">
-        <a href="#" class="logo">Teresa für <span class="italic">Paper & Tea</span></a>
+        <a href="index.html" class="logo">Teresa für <span class="italic">Paper & Tea</span></a>
       </div>
     </header>
 
     <!-- Marquee Banner - Text (oben) -->
     <div class="marquee-container">
       <div class="marquee-content">
-        <!-- Text einmal definieren -->
         <span>🎨 Hat geweint als sie „Frau mit Schirm“ von Monet in echt gesehen hat</span>
         <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
         <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
@@ -303,7 +302,6 @@
         <span>🍜 Bestellt bei Marubi immer die 71</span>
         <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
         <span>🧀 J'aime le fromage</span>
-        <!-- Text nochmal für nahtlosen Übergang -->
         <span>🎨 Hat geweint als sie „Frau mit Schirm“ von Monet in echt gesehen hat</span>
         <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
         <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
@@ -328,15 +326,15 @@
           via Vibe Coding diese Website zu erstellen, um mich vorzustellen.
         </p>
         <div class="category-tiles">
-          <a href="#about" class="category-tile">About me</a>
-          <a href="#fotografie" class="category-tile">Fotografie</a>
-          <a href="#malerei" class="category-tile">Malerei</a>
-          <a href="#musik" class="category-tile">Musik</a>
-          <a href="#buecher" class="category-tile">Bücher</a>
-          <a href="#filme" class="category-tile">Filme & Serien</a>
-          <a href="#gefuehle" class="category-tile">Gefühle</a>
-          <a href="#kurzgeschichte" class="category-tile">Kurzgeschichte</a>
-          <a href="#laufbahn" class="category-tile">Laufbahn</a>
+          <a href="about-me.html" class="category-tile">About me</a>
+          <a href="fotografie.html" class="category-tile">Fotografie</a>
+          <a href="malerei.html" class="category-tile">Malerei</a>
+          <a href="musik.html" class="category-tile">Musik</a>
+          <a href="buecher.html" class="category-tile">Bücher</a>
+          <a href="filme.html" class="category-tile">Filme & Serien</a>
+          <a href="gefuehle.html" class="category-tile">Gefühle</a>
+          <a href="kurzgeschichte.html" class="category-tile">Kurzgeschichte</a>
+          <a href="laufbahn.html" class="category-tile">Laufbahn</a>
         </div>
       </section>
     </main>
@@ -344,7 +342,6 @@
     <!-- Marquee Banner - Bilder (unten) -->
     <div class="marquee-image-container">
       <div class="marquee-image-content">
-        <!-- Bilder B1.jpeg bis B20.jpeg (B8 und B9 fehlen) - Erster Durchlauf -->
         <img src="images/B1.jpeg" alt="Bild 1" />
         <img src="images/B2.jpeg" alt="Bild 2" />
         <img src="images/B3.jpeg" alt="Bild 3" />
@@ -363,7 +360,6 @@
         <img src="images/B18.jpeg" alt="Bild 18" />
         <img src="images/B19.jpeg" alt="Bild 19" />
         <img src="images/B20.jpeg" alt="Bild 20" />
-        <!-- Bilder nochmal für nahtlosen Übergang -->
         <img src="images/B1.jpeg" alt="Bild 1" />
         <img src="images/B2.jpeg" alt="Bild 2" />
         <img src="images/B3.jpeg" alt="Bild 3" />
@@ -389,15 +385,21 @@
     <footer></footer>
 
     <script>
-      // Password Protection
+      // Password Protection mit localStorage
       const correctPassword = "test123";
       const passwordOverlay = document.getElementById("password-overlay");
       const passwordInput = document.getElementById("password-input");
       const passwordButton = document.getElementById("password-button");
       const passwordError = document.getElementById("password-error");
 
+      // Prüfe, ob Passwort bereits bestätigt wurde
+      if (localStorage.getItem("passwordConfirmed") === "true") {
+        passwordOverlay.style.display = "none";
+      }
+
       passwordButton.addEventListener("click", () => {
         if (passwordInput.value === correctPassword) {
+          localStorage.setItem("passwordConfirmed", "true");
           passwordOverlay.style.display = "none";
         } else {
           passwordError.style.display = "block";
@@ -408,28 +410,13 @@
       passwordInput.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
           if (passwordInput.value === correctPassword) {
+            localStorage.setItem("passwordConfirmed", "true");
             passwordOverlay.style.display = "none";
           } else {
             passwordError.style.display = "block";
             passwordInput.value = "";
           }
         }
-      });
-
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          if (targetId !== '#') {
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-              targetElement.scrollIntoView({
-                behavior: 'smooth'
-              });
-            }
-          }
-        });
       });
     </script>
   </body>
