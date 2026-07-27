@@ -105,10 +105,11 @@
 
       .header-content {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start; /* Linksbündig statt zentriert */
         align-items: center;
         max-width: 1200px;
         margin: 0 auto;
+        width: 100%; /* Volle Breite nutzen */
       }
 
       .logo {
@@ -123,7 +124,7 @@
         font-style: italic;
       }
 
-      /* Marquee Banner */
+      /* Marquee Banner - Durchgängig */
       .marquee-container {
         background-color: #c8d0c8;
         color: var(--primary-color);
@@ -275,6 +276,7 @@
         .header-content {
           flex-direction: column;
           gap: 1rem;
+          align-items: flex-start; /* Linksbündig auf Mobilgeräten */
         }
 
         .hero h1 {
@@ -319,10 +321,11 @@
       </div>
     </header>
 
-    <!-- Marquee Banner -->
+    <!-- Marquee Banner - Durchgängig mit verdoppeltem Inhalt -->
     <div class="marquee-container">
       <div class="marquee-wrapper">
         <div class="marquee">
+          <!-- Erster Durchlauf -->
           <span>💛 Mag Freundlichkeit</span>
           <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
           <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
@@ -332,6 +335,17 @@
           <span>🍜 Bestellt bei Marubi immer die 71</span>
           <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
           <span>🧀 J'aime le fromage</span>
+          <!-- Zweiter Durchlauf (für nahtlosen Übergang) -->
+          <span>💛 Mag Freundlichkeit</span>
+          <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
+          <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
+          <span>💖 Ist stolz darauf wer ihre Freunde sind</span>
+          <span>💭 Ist der Meinung Neid ist ein falsch verstandenes Gefühl</span>
+          <span>🎙️ Bevorzugt Podcasts über Wirtschaftskriminalität</span>
+          <span>🍜 Bestellt bei Marubi immer die 71</span>
+          <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
+          <span>🧀 J'aime le fromage</span>
+          <!-- Dritter Durchlauf (für absolute Sicherheit) -->
           <span>💛 Mag Freundlichkeit</span>
           <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
           <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
@@ -371,7 +385,7 @@
       </section>
     </main>
 
-    <!-- Bild-Laufband - Vollbreite (außerhalb von main) -->
+    <!-- Bild-Laufband - Vollbreite -->
     <div class="image-marquee-fullwidth">
       <div class="image-marquee-wrapper">
         <div class="image-marquee">
@@ -383,7 +397,7 @@
           <img src="images/B5.jpeg" alt="Bild 5" class="marquee-image" />
           <img src="images/B6.jpeg" alt="Bild 6" class="marquee-image" />
           <img src="images/B7.jpeg" alt="Bild 7" class="marquee-image" />
-          <!-- Bilder B10-B20 (B8 und B9 fehlen) -->
+          <!-- Bilder B10-B20 -->
           <img src="images/B10.jpeg" alt="Bild 10" class="marquee-image" />
           <img src="images/B11.jpeg" alt="Bild 11" class="marquee-image" />
           <img src="images/B12.jpeg" alt="Bild 12" class="marquee-image" />
