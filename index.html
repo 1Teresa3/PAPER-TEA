@@ -151,7 +151,7 @@
       /* Marquee Banner - Bilder (unten) */
       .marquee-image-container {
         background-color: #c8d0c8;
-        padding: 0.8rem 0;
+        padding: 1.5rem 0;
         overflow: hidden;
         white-space: nowrap;
         position: relative;
@@ -165,9 +165,10 @@
       }
 
       .marquee-image-content img {
-        height: 60px;
+        height: 80px;
         margin-right: 2rem;
         vertical-align: middle;
+        border-radius: 4px;
       }
 
       @keyframes marquee {
@@ -253,7 +254,7 @@
         }
 
         .marquee-image-content img {
-          height: 40px;
+          height: 60px;
           margin-right: 1rem;
         }
       }
@@ -337,8 +338,7 @@
     <!-- Marquee Banner - Bilder (unten) -->
     <div class="marquee-image-container">
       <div class="marquee-image-content">
-        <!-- Bilder B1.jpeg bis B20.jpeg (außer B9.jpeg) -->
-        <!-- Erster Durchlauf -->
+        <!-- Bilder B1.jpeg bis B20.jpeg (B9 fehlt) - Erster Durchlauf -->
         <img src="images/B1.jpeg" alt="Bild 1" />
         <img src="images/B2.jpeg" alt="Bild 2" />
         <img src="images/B3.jpeg" alt="Bild 3" />
@@ -358,7 +358,7 @@
         <img src="images/B18.jpeg" alt="Bild 18" />
         <img src="images/B19.jpeg" alt="Bild 19" />
         <img src="images/B20.jpeg" alt="Bild 20" />
-        <!-- Zweiter Durchlauf für nahtlosen Übergang -->
+        <!-- Bilder nochmal für nahtlosen Übergang -->
         <img src="images/B1.jpeg" alt="Bild 1" />
         <img src="images/B2.jpeg" alt="Bild 2" />
         <img src="images/B3.jpeg" alt="Bild 3" />
