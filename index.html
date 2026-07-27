@@ -96,20 +96,20 @@
         letter-spacing: 0.05em;
       }
 
-      /* Header */
+      /* Header - Logo ganz links */
       header {
         background-color: var(--secondary-color);
-        padding: 1rem 2rem;
+        padding: 1rem 0; /* Oberes/unteres Padding behalten */
         border-bottom: 1px solid #dcd6cc;
+        position: relative; /* Für absolute Positionierung des Logos */
+        min-height: 60px; /* Mindesthöhe, um Platz für das Logo zu sichern */
       }
 
       .header-content {
-        display: flex;
-        justify-content: flex-start; /* Linksbündig statt zentriert */
-        align-items: center;
+        position: relative;
         max-width: 1200px;
         margin: 0 auto;
-        width: 100%; /* Volle Breite nutzen */
+        height: 100%;
       }
 
       .logo {
@@ -118,6 +118,10 @@
         font-weight: 300;
         color: var(--dark-text);
         text-decoration: none;
+        position: absolute;
+        left: 2rem; /* Abstand vom linken Rand */
+        top: 50%;
+        transform: translateY(-50%); /* Zentriert vertikal */
       }
 
       .logo .italic {
@@ -273,10 +277,13 @@
 
       /* Responsive */
       @media (max-width: 768px) {
+        .logo {
+          left: 1rem; /* Weniger Abstand auf Mobilgeräten */
+          font-size: 1.2rem;
+        }
+
         .header-content {
-          flex-direction: column;
-          gap: 1rem;
-          align-items: flex-start; /* Linksbündig auf Mobilgeräten */
+          padding: 0;
         }
 
         .hero h1 {
@@ -321,11 +328,11 @@
       </div>
     </header>
 
-    <!-- Marquee Banner - Durchgängig mit verdoppeltem Inhalt -->
+    <!-- Marquee Banner - Durchgängig -->
     <div class="marquee-container">
       <div class="marquee-wrapper">
         <div class="marquee">
-          <!-- Erster Durchlauf -->
+          <!-- DREIFACHER INHALT für nahtlosen Loop -->
           <span>💛 Mag Freundlichkeit</span>
           <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
           <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
@@ -335,7 +342,7 @@
           <span>🍜 Bestellt bei Marubi immer die 71</span>
           <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
           <span>🧀 J'aime le fromage</span>
-          <!-- Zweiter Durchlauf (für nahtlosen Übergang) -->
+          <!-- Zweiter Durchlauf -->
           <span>💛 Mag Freundlichkeit</span>
           <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
           <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
@@ -345,7 +352,7 @@
           <span>🍜 Bestellt bei Marubi immer die 71</span>
           <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
           <span>🧀 J'aime le fromage</span>
-          <!-- Dritter Durchlauf (für absolute Sicherheit) -->
+          <!-- Dritter Durchlauf -->
           <span>💛 Mag Freundlichkeit</span>
           <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
           <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
