@@ -124,7 +124,7 @@
         font-style: italic;
       }
 
-      /* Marquee Banner */
+      /* Marquee Banner - Nahtlos */
       .marquee-container {
         background-color: #c8d0c8;
         color: var(--primary-color);
@@ -136,9 +136,8 @@
       }
 
       .marquee-wrapper {
-        display: flex;
-        width: max-content;
-        animation: marquee 60s linear infinite;
+        display: inline-block;
+        animation: marquee 40s linear infinite;
       }
 
       .marquee {
@@ -146,8 +145,7 @@
         font-weight: 300;
         letter-spacing: 0.1em;
         white-space: nowrap;
-        display: flex;
-        gap: 3rem;
+        display: inline-block;
       }
 
       .marquee-container:hover .marquee-wrapper {
@@ -155,7 +153,7 @@
       }
 
       @keyframes marquee {
-        0% { transform: translateX(0); }
+        0% { transform: translateX(0%); }
         100% { transform: translateX(-100%); }
       }
 
@@ -266,16 +264,6 @@
     <div class="marquee-container">
       <div class="marquee-wrapper">
         <div class="marquee">
-          <span>💛 Mag Freundlichkeit</span>
-          <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
-          <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
-          <span>💖 Ist stolz darauf wer ihre Freunde sind</span>
-          <span>💭 Ist der Meinung Neid ist ein falsch verstandenes Gefühl</span>
-          <span>🎙️ Bevorzugt Podcasts über Wirtschaftskriminalität</span>
-          <span>🍜 Bestellt bei Marubi immer die 71</span>
-          <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
-          <span>🧀 J'aime le fromage</span>
-          <!-- Duplizierter Inhalt für nahtlosen Loop -->
           <span>💛 Mag Freundlichkeit</span>
           <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
           <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
