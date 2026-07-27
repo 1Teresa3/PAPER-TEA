@@ -124,7 +124,7 @@
         font-style: italic;
       }
 
-      /* Marquee Banner - Nahtlos */
+      /* Marquee Banner - Perfekt nahtlos */
       .marquee-container {
         background-color: #c8d0c8;
         color: var(--primary-color);
@@ -135,26 +135,22 @@
         z-index: 1;
       }
 
-      .marquee-wrapper {
+      .marquee-content {
         display: inline-block;
         animation: marquee 40s linear infinite;
+        white-space: nowrap;
       }
 
-      .marquee {
+      .marquee-content span {
         font-size: 1.1rem;
         font-weight: 300;
         letter-spacing: 0.1em;
-        white-space: nowrap;
-        display: inline-block;
-      }
-
-      .marquee-container:hover .marquee-wrapper {
-        animation-play-state: paused;
+        margin-right: 3rem;
       }
 
       @keyframes marquee {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(-100%); }
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
       }
 
       /* Main Content */
@@ -230,8 +226,9 @@
           font-size: 1rem;
         }
 
-        .marquee {
+        .marquee-content span {
           font-size: 0.9rem;
+          margin-right: 1.5rem;
         }
       }
     </style>
@@ -262,18 +259,27 @@
 
     <!-- Marquee Banner -->
     <div class="marquee-container">
-      <div class="marquee-wrapper">
-        <div class="marquee">
-          <span>💛 Mag Freundlichkeit</span>
-          <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
-          <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
-          <span>💖 Ist stolz darauf wer ihre Freunde sind</span>
-          <span>💭 Ist der Meinung Neid ist ein falsch verstandenes Gefühl</span>
-          <span>🎙️ Bevorzugt Podcasts über Wirtschaftskriminalität</span>
-          <span>🍜 Bestellt bei Marubi immer die 71</span>
-          <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
-          <span>🧀 J'aime le fromage</span>
-        </div>
+      <div class="marquee-content">
+        <!-- Text einmal definieren -->
+        <span>💛 Mag Freundlichkeit</span>
+        <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
+        <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
+        <span>💖 Ist stolz darauf wer ihre Freunde sind</span>
+        <span>💭 Ist der Meinung Neid ist ein falsch verstandenes Gefühl</span>
+        <span>🎙️ Bevorzugt Podcasts über Wirtschaftskriminalität</span>
+        <span>🍜 Bestellt bei Marubi immer die 71</span>
+        <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
+        <span>🧀 J'aime le fromage</span>
+        <!-- Text nochmal für nahtlosen Übergang -->
+        <span>💛 Mag Freundlichkeit</span>
+        <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
+        <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
+        <span>💖 Ist stolz darauf wer ihre Freunde sind</span>
+        <span>💭 Ist der Meinung Neid ist ein falsch verstandenes Gefühl</span>
+        <span>🎙️ Bevorzugt Podcasts über Wirtschaftskriminalität</span>
+        <span>🍜 Bestellt bei Marubi immer die 71</span>
+        <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
+        <span>🧀 J'aime le fromage</span>
       </div>
     </div>
 
