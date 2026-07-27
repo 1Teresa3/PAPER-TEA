@@ -220,13 +220,13 @@
         transform: translateY(-2px);
       }
 
-      /* Bild-Laufband */
-      .image-marquee-container {
-        width: 100%;
+      /* Bild-Laufband - Vollbreite */
+      .image-marquee-fullwidth {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
         overflow: hidden;
-        margin-top: 3rem;
-        background-color: var(--secondary-color);
         padding: 1.5rem 0;
+        background-color: var(--secondary-color);
         border-top: 1px solid #dcd6cc;
         border-bottom: 1px solid #dcd6cc;
       }
@@ -241,6 +241,8 @@
         display: flex;
         gap: 1.5rem;
         align-items: center;
+        padding-left: 50vw;
+        padding-right: 50vw;
       }
 
       .image-marquee:hover .image-marquee-wrapper {
@@ -287,7 +289,7 @@
           height: 120px;
         }
 
-        .image-marquee-container {
+        .image-marquee-fullwidth {
           padding: 1rem 0;
         }
       }
@@ -366,55 +368,55 @@
           <a href="#kurzgeschichte" class="category-tile">Kurzgeschichte</a>
           <a href="#laufbahn" class="category-tile">Laufbahn</a>
         </div>
-
-        <!-- Bild-Laufband -->
-        <div class="image-marquee-container">
-          <div class="image-marquee-wrapper">
-            <div class="image-marquee">
-              <!-- Bilder B1-B7 -->
-              <img src="images/B1.jpeg" alt="Bild 1" class="marquee-image" />
-              <img src="images/B2.jpeg" alt="Bild 2" class="marquee-image" />
-              <img src="images/B3.jpeg" alt="Bild 3" class="marquee-image" />
-              <img src="images/B4.jpeg" alt="Bild 4" class="marquee-image" />
-              <img src="images/B5.jpeg" alt="Bild 5" class="marquee-image" />
-              <img src="images/B6.jpeg" alt="Bild 6" class="marquee-image" />
-              <img src="images/B7.jpeg" alt="Bild 7" class="marquee-image" />
-              <!-- Bilder B10-B20 (B8 und B9 fehlen) -->
-              <img src="images/B10.jpeg" alt="Bild 10" class="marquee-image" />
-              <img src="images/B11.jpeg" alt="Bild 11" class="marquee-image" />
-              <img src="images/B12.jpeg" alt="Bild 12" class="marquee-image" />
-              <img src="images/B13.jpeg" alt="Bild 13" class="marquee-image" />
-              <img src="images/B14.jpeg" alt="Bild 14" class="marquee-image" />
-              <img src="images/B15.jpeg" alt="Bild 15" class="marquee-image" />
-              <img src="images/B16.jpeg" alt="Bild 16" class="marquee-image" />
-              <img src="images/B17.jpeg" alt="Bild 17" class="marquee-image" />
-              <img src="images/B18.jpeg" alt="Bild 18" class="marquee-image" />
-              <img src="images/B19.jpeg" alt="Bild 19" class="marquee-image" />
-              <img src="images/B20.jpeg" alt="Bild 20" class="marquee-image" />
-              <!-- Duplizieren für nahtlosen Loop (ohne B8 und B9) -->
-              <img src="images/B1.jpeg" alt="Bild 1" class="marquee-image" />
-              <img src="images/B2.jpeg" alt="Bild 2" class="marquee-image" />
-              <img src="images/B3.jpeg" alt="Bild 3" class="marquee-image" />
-              <img src="images/B4.jpeg" alt="Bild 4" class="marquee-image" />
-              <img src="images/B5.jpeg" alt="Bild 5" class="marquee-image" />
-              <img src="images/B6.jpeg" alt="Bild 6" class="marquee-image" />
-              <img src="images/B7.jpeg" alt="Bild 7" class="marquee-image" />
-              <img src="images/B10.jpeg" alt="Bild 10" class="marquee-image" />
-              <img src="images/B11.jpeg" alt="Bild 11" class="marquee-image" />
-              <img src="images/B12.jpeg" alt="Bild 12" class="marquee-image" />
-              <img src="images/B13.jpeg" alt="Bild 13" class="marquee-image" />
-              <img src="images/B14.jpeg" alt="Bild 14" class="marquee-image" />
-              <img src="images/B15.jpeg" alt="Bild 15" class="marquee-image" />
-              <img src="images/B16.jpeg" alt="Bild 16" class="marquee-image" />
-              <img src="images/B17.jpeg" alt="Bild 17" class="marquee-image" />
-              <img src="images/B18.jpeg" alt="Bild 18" class="marquee-image" />
-              <img src="images/B19.jpeg" alt="Bild 19" class="marquee-image" />
-              <img src="images/B20.jpeg" alt="Bild 20" class="marquee-image" />
-            </div>
-          </div>
-        </div>
       </section>
     </main>
+
+    <!-- Bild-Laufband - Vollbreite (außerhalb von main) -->
+    <div class="image-marquee-fullwidth">
+      <div class="image-marquee-wrapper">
+        <div class="image-marquee">
+          <!-- Bilder B1-B7 -->
+          <img src="images/B1.jpeg" alt="Bild 1" class="marquee-image" />
+          <img src="images/B2.jpeg" alt="Bild 2" class="marquee-image" />
+          <img src="images/B3.jpeg" alt="Bild 3" class="marquee-image" />
+          <img src="images/B4.jpeg" alt="Bild 4" class="marquee-image" />
+          <img src="images/B5.jpeg" alt="Bild 5" class="marquee-image" />
+          <img src="images/B6.jpeg" alt="Bild 6" class="marquee-image" />
+          <img src="images/B7.jpeg" alt="Bild 7" class="marquee-image" />
+          <!-- Bilder B10-B20 (B8 und B9 fehlen) -->
+          <img src="images/B10.jpeg" alt="Bild 10" class="marquee-image" />
+          <img src="images/B11.jpeg" alt="Bild 11" class="marquee-image" />
+          <img src="images/B12.jpeg" alt="Bild 12" class="marquee-image" />
+          <img src="images/B13.jpeg" alt="Bild 13" class="marquee-image" />
+          <img src="images/B14.jpeg" alt="Bild 14" class="marquee-image" />
+          <img src="images/B15.jpeg" alt="Bild 15" class="marquee-image" />
+          <img src="images/B16.jpeg" alt="Bild 16" class="marquee-image" />
+          <img src="images/B17.jpeg" alt="Bild 17" class="marquee-image" />
+          <img src="images/B18.jpeg" alt="Bild 18" class="marquee-image" />
+          <img src="images/B19.jpeg" alt="Bild 19" class="marquee-image" />
+          <img src="images/B20.jpeg" alt="Bild 20" class="marquee-image" />
+          <!-- Duplizieren für nahtlosen Loop -->
+          <img src="images/B1.jpeg" alt="Bild 1" class="marquee-image" />
+          <img src="images/B2.jpeg" alt="Bild 2" class="marquee-image" />
+          <img src="images/B3.jpeg" alt="Bild 3" class="marquee-image" />
+          <img src="images/B4.jpeg" alt="Bild 4" class="marquee-image" />
+          <img src="images/B5.jpeg" alt="Bild 5" class="marquee-image" />
+          <img src="images/B6.jpeg" alt="Bild 6" class="marquee-image" />
+          <img src="images/B7.jpeg" alt="Bild 7" class="marquee-image" />
+          <img src="images/B10.jpeg" alt="Bild 10" class="marquee-image" />
+          <img src="images/B11.jpeg" alt="Bild 11" class="marquee-image" />
+          <img src="images/B12.jpeg" alt="Bild 12" class="marquee-image" />
+          <img src="images/B13.jpeg" alt="Bild 13" class="marquee-image" />
+          <img src="images/B14.jpeg" alt="Bild 14" class="marquee-image" />
+          <img src="images/B15.jpeg" alt="Bild 15" class="marquee-image" />
+          <img src="images/B16.jpeg" alt="Bild 16" class="marquee-image" />
+          <img src="images/B17.jpeg" alt="Bild 17" class="marquee-image" />
+          <img src="images/B18.jpeg" alt="Bild 18" class="marquee-image" />
+          <img src="images/B19.jpeg" alt="Bild 19" class="marquee-image" />
+          <img src="images/B20.jpeg" alt="Bild 20" class="marquee-image" />
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer></footer>
