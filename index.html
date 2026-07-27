@@ -151,7 +151,7 @@
       /* Marquee Banner - Bilder (unten) */
       .marquee-image-container {
         background-color: #c8d0c8;
-        padding: 1.5rem 0;
+        padding: 2rem 0; /* Mehr Padding für größere Bilder */
         overflow: hidden;
         white-space: nowrap;
         position: relative;
@@ -160,17 +160,17 @@
 
       .marquee-image-content {
         display: inline-block;
-        animation: marquee 40s linear infinite;
+        animation: marquee 45s linear infinite; /* Etwas langsamer für größere Bilder */
         white-space: nowrap;
       }
 
       .marquee-image-content img {
-        height: 80px;
-        width: auto; /* Behält das Seitenverhältnis bei */
-        margin-right: 2rem;
+        height: 100px; /* Größere Bilder */
+        width: auto;
+        margin-right: 2.5rem; /* Mehr Abstand zwischen Bildern */
         vertical-align: middle;
         border-radius: 4px;
-        object-fit: contain; /* Verhindert Verzerrungen */
+        object-fit: contain;
       }
 
       @keyframes marquee {
@@ -256,8 +256,12 @@
         }
 
         .marquee-image-content img {
-          height: 60px;
-          margin-right: 1rem;
+          height: 70px; /* Etwas kleiner auf Mobilgeräten */
+          margin-right: 1.5rem;
+        }
+
+        .marquee-image-container {
+          padding: 1rem 0;
         }
       }
     </style>
