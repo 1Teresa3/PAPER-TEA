@@ -97,7 +97,6 @@
         max-width: 1200px;
         margin: 2rem auto;
         padding: 0 2rem;
-        text-align: center;
       }
 
       .page-title {
@@ -106,12 +105,48 @@
         font-weight: 300;
         color: var(--dark-text);
         margin-bottom: 2rem;
+        text-align: left;
+      }
+
+      /* About Me Content Layout */
+      .about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 600px;
+      }
+
+      .about-title {
+        font-family: var(--font-secondary);
+        font-size: 1.8rem;
+        font-weight: 300;
+        color: var(--dark-text);
+        margin-bottom: 1rem;
+        text-align: left;
+      }
+
+      .about-image-container {
+        margin-bottom: 1rem;
+      }
+
+      .about-image {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-caption {
+        font-style: italic;
+        color: var(--text-color);
+        margin-top: 0.5rem;
+        text-align: left;
       }
 
       /* Button */
       .button-container {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         margin-top: 2rem;
       }
 
@@ -157,6 +192,15 @@
           font-size: 0.9rem;
           margin-right: 1.5rem;
         }
+
+        .about-content {
+          align-items: center;
+          text-align: center;
+        }
+
+        .button-container {
+          justify-content: center;
+        }
       }
     </style>
   </head>
@@ -185,6 +229,7 @@
         <span>🍜 Bestellt bei Marubi immer die 71</span>
         <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
         <span>🧀 J'aime le fromage</span>
+        <!-- Wiederholung für nahtlosen Übergang -->
         <span>🎨 Hat geweint als sie „Frau mit Schirm“ von Monet in echt gesehen hat</span>
         <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
         <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
@@ -200,8 +245,22 @@
     <!-- Main Content -->
     <main>
       <h1 class="page-title">About Me</h1>
-      <div class="button-container">
-        <a href="index.html" class="button">Zurück zur Hauptseite</a>
+
+      <div class="about-content">
+        <h2 class="about-title">Teresa Who?</h2>
+
+        <div class="about-image-container">
+          <img
+            src="aboutmefoto/ich1.jpg"
+            alt="Foto von Teresa"
+            class="about-image"
+          />
+          <p class="about-caption">Can't see the haters because I am wearing love glasses since 1992</p>
+        </div>
+
+        <div class="button-container">
+          <a href="index.html" class="button">Zurück zur Hauptseite</a>
+        </div>
       </div>
     </main>
 
