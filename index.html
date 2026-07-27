@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teresa für Paper & Tea</title>
+    <style>
+      :root {
+        --primary-color: #f9f7f4;
+        --secondary-color: #f0ece7;
+        --accent-color: #d4c4b0;
+        --text-color: #5a5a5a;
+        --dark-text: #4a4a4a;
+        --font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        --font-secondary: 'Georgia', serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-primary);
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Password Protection */
+      #password-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(200, 208, 200, 0.95);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        flex-direction: column;
+      }
+
+      #password-form {
+        background-color: var(--secondary-color);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+      }
+
+      #password-input {
+        width: 100%;
+        padding: 0.8rem;
+        margin: 1rem 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+        background-color: var(--primary-color);
+      }
+
+      #password-button {
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+      }
+
+      #password-button:hover {
+        background-color: #b8a894;
+      }
+
+      #password-error {
+        color: #d32f2f;
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      /* Top Banner */
+      .top-banner {
+        background-color: #000000;
+        color: white;
+        text-align: center;
+        padding: 0.6rem 0;
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+      }
+
+      /* Header */
+      header {
+        background-color: var(--secondary-color);
+        padding: 1rem 2rem;
+        border-bottom: 1px solid #dcd6cc;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .logo {
+        font-family: var(--font-secondary);
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: var(--dark-text);
+        text-decoration: none;
+      }
+
+      .logo .italic {
+        font-style: italic;
+      }
+
+      /* Marquee Banner */
+      .marquee-container {
+        background-color: #c8d0c8;
+        color: var(--primary-color);
+        padding: 0.8rem 0;
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+        z-index: 1;
+      }
+
+      .marquee-wrapper {
+        display: flex;
+        width: max-content;
+        animation: marquee 40s linear infinite;
+      }
+
+      .marquee {
+        font-size: 1.1rem;
+        font-weight: 300;
+        letter-spacing: 0.1em;
+        white-space: nowrap;
+        display: flex;
+        gap: 3rem;
+      }
+
+      .marquee-container:hover .marquee-wrapper {
+        animation-play-state: paused;
+      }
+
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
+      /* Main Content */
+      main {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 2rem;
+      }
+
+      .hero {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .hero h1 {
+        font-family: var(--font-secondary);
+        font-size: 3rem;
+        font-weight: 300;
+        color: var(--dark-text);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+        color: #000000;
+        font-family: var(--font-primary);
+      }
+
+      /* Category Tiles */
+      .category-tiles {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .category-tile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        background-color: var(--secondary-color);
+        border: 1px solid #dcd6cc;
+        border-radius: 8px;
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.3s;
+        height: 80px;
+      }
+
+      .category-tile:hover {
+        background-color: var(--accent-color);
+        color: var(--primary-color);
+        border-color: #a89c90;
+        transform: translateY(-2px);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--secondary-color);
+        padding: 2rem;
+        text-align: center;
+        margin-top: 3rem;
+        border-top: 1px solid #dcd6cc;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .marquee {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+      <span>🔥 new hot Application in</span>
+    </div>
+
+    <!-- Password Protection Overlay -->
+    <div id="password-overlay">
+      <div id="password-form">
+        <h2>Passwortgeschützt</h2>
+        <p>Bitte geben Sie das Passwort ein:</p>
+        <input type="password" id="password-input" placeholder="Passwort eingeben" />
+        <button id="password-button">Eintritt</button>
+        <p id="password-error" style="display: none;">Falsches Passwort. Bitte versuchen Sie es erneut.</p>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <a href="#" class="logo">Teresa für <span class="italic">Paper & Tea</span></a>
+      </div>
+    </header>
+
+    <!-- Marquee Banner -->
+    <div class="marquee-container">
+      <div class="marquee-wrapper">
+        <div class="marquee">
+          <span>💛 Mag Freundlichkeit</span>
+          <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
+          <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
+          <span>💖 Ist stolz darauf wer ihre Freunde sind</span>
+          <span>💭 Ist der Meinung Neid ist ein falsch verstandenes Gefühl</span>
+          <span>🎙️ Bevorzugt Podcasts über Wirtschaftskriminalität</span>
+          <span>🍜 Bestellt bei Marubi immer die 71</span>
+          <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
+          <span>🧀 J'aime le fromage</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+      <section class="hero">
+        <h1>Teresa für <span class="italic">Paper & Tea</span></h1>
+        <p>
+          Zuerst habe ich eine Canvas-Präsentation erstellt, aber diese hat bei einer Freundin nicht überzeugt. 
+          Sie meinte, ich hätte kreativ mehr drauf. Doch ich musste mir eingestehen, dass es bei der Ästhetik von Präsentationen 
+          einfach viele gibt, die das besser können als ich. Ein anderer Freund, der im Marketing arbeitet, sagte mir, 
+          dass bei neuen Kollegen nach Kompetenzen gesucht wird, die zeigen, dass man mit K.I. arbeiten kann. 
+          Daher habe ich beschlossen, meine Skills aus meiner Weiterbildung Data Analytics zu nutzen und mithilfe von K.I. 
+          via Vibe Coding diese Website zu erstellen, um mich vorzustellen.
+        </p>
+        <div class="category-tiles">
+          <a href="#about" class="category-tile">About me</a>
+          <a href="#fotografie" class="category-tile">Fotografie</a>
+          <a href="#malerei" class="category-tile">Malerei</a>
+          <a href="#musik" class="category-tile">Musik</a>
+          <a href="#buecher" class="category-tile">Bücher</a>
+          <a href="#filme" class="category-tile">Filme & Serien</a>
+          <a href="#gefuehle" class="category-tile">Gefühle</a>
+          <a href="#kurzgeschichte" class="category-tile">Kurzgeschichte</a>
+          <a href="#laufbahn" class="category-tile">Laufbahn</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer></footer>
+
+    <script>
+      // Password Protection
+      const correctPassword = "test123";
+      const passwordOverlay = document.getElementById("password-overlay");
+      const passwordInput = document.getElementById("password-input");
+      const passwordButton = document.getElementById("password-button");
+      const passwordError = document.getElementById("password-error");
+
+      passwordButton.addEventListener("click", () => {
+        if (passwordInput.value === correctPassword) {
+          passwordOverlay.style.display = "none";
+        } else {
+          passwordError.style.display = "block";
+          passwordInput.value = "";
+        }
+      });
+
+      passwordInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          if (passwordInput.value === correctPassword) {
+            passwordOverlay.style.display = "none";
+          } else {
+            passwordError.style.display = "block";
+            passwordInput.value = "";
+          }
+        }
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId !== '#') {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: 'smooth'
+              });
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
