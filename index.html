@@ -166,9 +166,11 @@
 
       .marquee-image-content img {
         height: 80px;
+        width: auto; /* Behält das Seitenverhältnis bei */
         margin-right: 2rem;
         vertical-align: middle;
         border-radius: 4px;
+        object-fit: contain; /* Verhindert Verzerrungen */
       }
 
       @keyframes marquee {
@@ -288,7 +290,7 @@
     <div class="marquee-container">
       <div class="marquee-content">
         <!-- Text einmal definieren -->
-        <span>💛 Mag Freundlichkeit</span>
+        <span>🎨 Hat geweint als sie „Frau mit Schirm“ von Monet in echt gesehen hat</span>
         <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
         <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
         <span>💖 Ist stolz darauf wer ihre Freunde sind</span>
@@ -298,7 +300,7 @@
         <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
         <span>🧀 J'aime le fromage</span>
         <!-- Text nochmal für nahtlosen Übergang -->
-        <span>💛 Mag Freundlichkeit</span>
+        <span>🎨 Hat geweint als sie „Frau mit Schirm“ von Monet in echt gesehen hat</span>
         <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
         <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
         <span>💖 Ist stolz darauf wer ihre Freunde sind</span>
@@ -338,7 +340,7 @@
     <!-- Marquee Banner - Bilder (unten) -->
     <div class="marquee-image-container">
       <div class="marquee-image-content">
-        <!-- Bilder B1.jpeg bis B20.jpeg (B9 fehlt) - Erster Durchlauf -->
+        <!-- Bilder B1.jpeg bis B20.jpeg (B8 und B9 fehlen) - Erster Durchlauf -->
         <img src="images/B1.jpeg" alt="Bild 1" />
         <img src="images/B2.jpeg" alt="Bild 2" />
         <img src="images/B3.jpeg" alt="Bild 3" />
@@ -346,7 +348,6 @@
         <img src="images/B5.jpeg" alt="Bild 5" />
         <img src="images/B6.jpeg" alt="Bild 6" />
         <img src="images/B7.jpeg" alt="Bild 7" />
-        <img src="images/B8.jpeg" alt="Bild 8" />
         <img src="images/B10.jpeg" alt="Bild 10" />
         <img src="images/B11.jpeg" alt="Bild 11" />
         <img src="images/B12.jpeg" alt="Bild 12" />
@@ -366,7 +367,6 @@
         <img src="images/B5.jpeg" alt="Bild 5" />
         <img src="images/B6.jpeg" alt="Bild 6" />
         <img src="images/B7.jpeg" alt="Bild 7" />
-        <img src="images/B8.jpeg" alt="Bild 8" />
         <img src="images/B10.jpeg" alt="Bild 10" />
         <img src="images/B11.jpeg" alt="Bild 11" />
         <img src="images/B12.jpeg" alt="Bild 12" />
