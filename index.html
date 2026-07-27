@@ -1,3 +1,6 @@
+Landing page
+
+
 <!doctype html>
 <html lang="de">
   <head>
@@ -96,20 +99,19 @@
         letter-spacing: 0.05em;
       }
 
-      /* Header - Logo ganz links */
+      /* Header */
       header {
         background-color: var(--secondary-color);
-        padding: 1rem 0;
+        padding: 1rem 2rem;
         border-bottom: 1px solid #dcd6cc;
-        position: relative;
-        min-height: 60px;
       }
 
       .header-content {
-        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         max-width: 1200px;
         margin: 0 auto;
-        height: 100%;
       }
 
       .logo {
@@ -118,17 +120,13 @@
         font-weight: 300;
         color: var(--dark-text);
         text-decoration: none;
-        position: absolute;
-        left: 2rem;
-        top: 50%;
-        transform: translateY(-50%);
       }
 
       .logo .italic {
         font-style: italic;
       }
 
-      /* Marquee Banner - Korrigiert: -50% Animation + 2x Wiederholung */
+      /* Marquee Banner */
       .marquee-container {
         background-color: #c8d0c8;
         color: var(--primary-color);
@@ -160,7 +158,7 @@
 
       @keyframes marquee {
         0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); } /* KORRIGIERT: -50% statt -100% */
+        100% { transform: translateX(-100%); }
       }
 
       /* Main Content */
@@ -225,47 +223,6 @@
         transform: translateY(-2px);
       }
 
-      /* Bild-Laufband - Korrigiert: -50% Animation + 2x Wiederholung */
-      .image-marquee-fullwidth {
-        width: 100vw;
-        margin-left: calc(-50vw + 50%);
-        overflow: hidden;
-        padding: 1.5rem 0;
-        background-color: var(--secondary-color);
-        border-top: 1px solid #dcd6cc;
-        border-bottom: 1px solid #dcd6cc;
-      }
-
-      .image-marquee-wrapper {
-        display: flex;
-        width: max-content;
-        animation: image-marquee 60s linear infinite;
-      }
-
-      .image-marquee {
-        display: flex;
-        gap: 1.5rem;
-        align-items: center;
-        padding-left: 50vw;
-        padding-right: 50vw;
-      }
-
-      .image-marquee:hover .image-marquee-wrapper {
-        animation-play-state: paused;
-      }
-
-      .marquee-image {
-        height: 180px;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        object-fit: cover;
-      }
-
-      @keyframes image-marquee {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); } /* KORRIGIERT: -50% statt -100% */
-      }
-
       /* Footer */
       footer {
         background-color: var(--secondary-color);
@@ -277,13 +234,9 @@
 
       /* Responsive */
       @media (max-width: 768px) {
-        .logo {
-          left: 1rem;
-          font-size: 1.2rem;
-        }
-
         .header-content {
-          padding: 0;
+          flex-direction: column;
+          gap: 1rem;
         }
 
         .hero h1 {
@@ -292,14 +245,6 @@
 
         .marquee {
           font-size: 0.9rem;
-        }
-
-        .marquee-image {
-          height: 120px;
-        }
-
-        .image-marquee-fullwidth {
-          padding: 1rem 0;
         }
       }
     </style>
@@ -328,11 +273,10 @@
       </div>
     </header>
 
-    <!-- Marquee Banner - 2x wiederholt (kein JavaScript) -->
+    <!-- Marquee Banner -->
     <div class="marquee-container">
       <div class="marquee-wrapper">
         <div class="marquee">
-          <!-- Erster Durchlauf -->
           <span>💛 Mag Freundlichkeit</span>
           <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
           <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
@@ -342,7 +286,7 @@
           <span>🍜 Bestellt bei Marubi immer die 71</span>
           <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
           <span>🧀 J'aime le fromage</span>
-          <!-- Zweiter Durchlauf (nur 2x) -->
+          <!-- Duplizierter Inhalt für nahtlosen Loop -->
           <span>💛 Mag Freundlichkeit</span>
           <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
           <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
@@ -381,53 +325,6 @@
         </div>
       </section>
     </main>
-
-    <!-- Bild-Laufband - 2x wiederholt -->
-    <div class="image-marquee-fullwidth">
-      <div class="image-marquee-wrapper">
-        <div class="image-marquee">
-          <!-- Bilder B1-B7 -->
-          <img src="images/B1.jpeg" alt="Bild 1" class="marquee-image" />
-          <img src="images/B2.jpeg" alt="Bild 2" class="marquee-image" />
-          <img src="images/B3.jpeg" alt="Bild 3" class="marquee-image" />
-          <img src="images/B4.jpeg" alt="Bild 4" class="marquee-image" />
-          <img src="images/B5.jpeg" alt="Bild 5" class="marquee-image" />
-          <img src="images/B6.jpeg" alt="Bild 6" class="marquee-image" />
-          <img src="images/B7.jpeg" alt="Bild 7" class="marquee-image" />
-          <!-- Bilder B10-B20 -->
-          <img src="images/B10.jpeg" alt="Bild 10" class="marquee-image" />
-          <img src="images/B11.jpeg" alt="Bild 11" class="marquee-image" />
-          <img src="images/B12.jpeg" alt="Bild 12" class="marquee-image" />
-          <img src="images/B13.jpeg" alt="Bild 13" class="marquee-image" />
-          <img src="images/B14.jpeg" alt="Bild 14" class="marquee-image" />
-          <img src="images/B15.jpeg" alt="Bild 15" class="marquee-image" />
-          <img src="images/B16.jpeg" alt="Bild 16" class="marquee-image" />
-          <img src="images/B17.jpeg" alt="Bild 17" class="marquee-image" />
-          <img src="images/B18.jpeg" alt="Bild 18" class="marquee-image" />
-          <img src="images/B19.jpeg" alt="Bild 19" class="marquee-image" />
-          <img src="images/B20.jpeg" alt="Bild 20" class="marquee-image" />
-          <!-- Zweiter Durchlauf -->
-          <img src="images/B1.jpeg" alt="Bild 1" class="marquee-image" />
-          <img src="images/B2.jpeg" alt="Bild 2" class="marquee-image" />
-          <img src="images/B3.jpeg" alt="Bild 3" class="marquee-image" />
-          <img src="images/B4.jpeg" alt="Bild 4" class="marquee-image" />
-          <img src="images/B5.jpeg" alt="Bild 5" class="marquee-image" />
-          <img src="images/B6.jpeg" alt="Bild 6" class="marquee-image" />
-          <img src="images/B7.jpeg" alt="Bild 7" class="marquee-image" />
-          <img src="images/B10.jpeg" alt="Bild 10" class="marquee-image" />
-          <img src="images/B11.jpeg" alt="Bild 11" class="marquee-image" />
-          <img src="images/B12.jpeg" alt="Bild 12" class="marquee-image" />
-          <img src="images/B13.jpeg" alt="Bild 13" class="marquee-image" />
-          <img src="images/B14.jpeg" alt="Bild 14" class="marquee-image" />
-          <img src="images/B15.jpeg" alt="Bild 15" class="marquee-image" />
-          <img src="images/B16.jpeg" alt="Bild 16" class="marquee-image" />
-          <img src="images/B17.jpeg" alt="Bild 17" class="marquee-image" />
-          <img src="images/B18.jpeg" alt="Bild 18" class="marquee-image" />
-          <img src="images/B19.jpeg" alt="Bild 19" class="marquee-image" />
-          <img src="images/B20.jpeg" alt="Bild 20" class="marquee-image" />
-        </div>
-      </div>
-    </div>
 
     <!-- Footer -->
     <footer></footer>
