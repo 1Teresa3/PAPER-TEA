@@ -68,7 +68,7 @@
         font-style: italic;
       }
 
-      /* Marquee Banner */
+      /* Marquee Banner - Text (oben) */
       .marquee-container {
         background-color: #c8d0c8;
         color: var(--primary-color);
@@ -108,6 +108,27 @@
         text-align: left;
       }
 
+      /* Textbereich */
+      .about-text {
+        font-size: 1rem;
+        color: var(--dark-text);
+        line-height: 1.8;
+        margin-bottom: 2rem;
+        text-align: left;
+        max-width: 800px;
+      }
+
+      /* Fun Fact Text */
+      .fun-fact {
+        font-size: 1rem;
+        color: var(--dark-text);
+        line-height: 1.8;
+        margin-top: 2rem;
+        text-align: left;
+        max-width: 800px;
+        font-style: italic;
+      }
+
       /* Galerie für Malerei */
       .gallery-container {
         display: flex;
@@ -127,6 +148,7 @@
         border-radius: 8px;
         overflow: hidden;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
       }
 
       .gallery-item img {
@@ -140,27 +162,56 @@
         transform: scale(1.05);
       }
 
-      .gallery-caption {
-        font-style: italic;
-        color: var(--text-color);
-        margin-top: 0.5rem;
-        text-align: center;
+      /* Lightbox für vergrößerte Bilder */
+      .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
       }
 
-      /* Textbereich */
-      .about-text {
-        font-size: 1rem;
-        color: var(--dark-text);
-        line-height: 1.8;
-        margin-bottom: 1.5rem;
-        text-align: left;
+      .lightbox.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .lightbox-content {
+        max-width: 90%;
+        max-height: 90%;
+      }
+
+      .lightbox-content img {
+        max-width: 100%;
+        max-height: 80vh;
+        display: block;
+        border-radius: 8px;
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        background: none;
+        border: none;
       }
 
       /* Button */
       .button-container {
         display: flex;
         justify-content: flex-start;
-        margin-top: 1rem;
+        margin-top: 2rem;
       }
 
       .button {
@@ -213,6 +264,10 @@
         .button-container {
           justify-content: center;
         }
+
+        .about-text, .fun-fact {
+          text-align: center;
+        }
       }
     </style>
   </head>
@@ -229,22 +284,28 @@
       </div>
     </header>
 
-    <!-- Marquee Banner -->
+    <!-- Marquee Banner - Text (oben) -->
     <div class="marquee-container">
       <div class="marquee-content">
-        <span>🎨 Liebt es, Farben auf Leinwand zum Leben zu erwecken</span>
-        <span>🖌️ Experimentiert mit Aquarell und Acryl</span>
-        <span>🌄 Findet Inspiration in der Natur und im Alltag</span>
-        <span>🖼️ Träumt davon, eines Tages eine eigene Ausstellung zu haben</span>
         <span>🎨 Hat geweint als sie „Frau mit Schirm“ von Monet in echt gesehen hat</span>
         <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
+        <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
+        <span>💖 Ist stolz darauf wer ihre Freunde sind</span>
+        <span>💭 Ist der Meinung Neid ist ein falsch verstandenes Gefühl</span>
+        <span>🎙️ Bevorzugt Podcasts über Wirtschaftskriminalität</span>
+        <span>🍜 Bestellt bei Marubi immer die 71</span>
+        <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
+        <span>🧀 J'aime le fromage</span>
         <!-- Wiederholung für nahtlosen Übergang -->
-        <span>🎨 Liebt es, Farben auf Leinwand zum Leben zu erwecken</span>
-        <span>🖌️ Experimentiert mit Aquarell und Acryl</span>
-        <span>🌄 Findet Inspiration in der Natur und im Alltag</span>
-        <span>🖼️ Träumt davon, eines Tages eine eigene Ausstellung zu haben</span>
         <span>🎨 Hat geweint als sie „Frau mit Schirm“ von Monet in echt gesehen hat</span>
         <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
+        <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
+        <span>💖 Ist stolz darauf wer ihre Freunde sind</span>
+        <span>💭 Ist der Meinung Neid ist ein falsch verstandenes Gefühl</span>
+        <span>🎙️ Bevorzugt Podcasts über Wirtschaftskriminalität</span>
+        <span>🍜 Bestellt bei Marubi immer die 71</span>
+        <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
+        <span>🧀 J'aime le fromage</span>
       </div>
     </div>
 
@@ -252,33 +313,47 @@
     <main>
       <h1 class="page-title">Malerei</h1>
 
+      <!-- Text über Malerei -->
+      <div class="about-text">
+        <p>
+          Als ich das erste Mal ein Bild von Corinne Wasmuht im Städel Museum in Frankfurt gesehen habe,
+          war es wie ein flüchtiger Flirt: Hingesehen, weggesehen – dann die Erkenntnis: „Moment mal, was habe ich da gesehen?“
+          Kreativität und Fantasie, ein Bild, das noch nicht von Millionen Menschen interpretiert wurde.
+          Es fühlte sich persönlich an, nicht richtig, nicht falsch – einfach schön.
+        </p>
+      </div>
+
       <!-- Galerie mit Bildern aus dem malerei-Ordner -->
       <div class="gallery-container">
         <div class="gallery-grid">
-          <div class="gallery-item">
+          <div class="gallery-item" onclick="openLightbox('malerei/bild1.jpeg')">
             <img src="malerei/bild1.jpeg" alt="Kunstwerk 1" />
-            <p class="gallery-caption">Bild 1 - Acryl auf Leinwand</p>
           </div>
-          <div class="gallery-item">
+          <div class="gallery-item" onclick="openLightbox('malerei/bild2.jpeg')">
             <img src="malerei/bild2.jpeg" alt="Kunstwerk 2" />
-            <p class="gallery-caption">Bild 2 - Aquarell</p>
           </div>
         </div>
 
-        <div class="about-text">
-          <p>
-            Hier findest du eine Auswahl meiner künstlerischen Arbeiten. Jedes Bild erzählt eine eigene Geschichte und ist ein Ausdruck meiner Kreativität und Leidenschaft für die Malerei.
-          </p>
-          <p>
-            Ich arbeite hauptsächlich mit Acryl und Aquarell, aber ich liebe es auch, neue Techniken auszuprobieren. Die Natur und meine Umgebung sind meine größten Inspirationsquellen.
-          </p>
-        </div>
+        <!-- Fun Fact Text -->
+        <p class="fun-fact">
+          Fun Fact: Ich höre gerne auf Spotify klassische Musik, wenn ich male.
+          Die Erkenntnis: Richard Wagner ist wirklich gut!
+          Habe einige Male eine Pause gemacht, um zu schauen, wer der Komponist ist – und es war immer er.
+        </p>
       </div>
 
       <div class="button-container">
         <a href="index.html" class="button">Zurück zur Hauptseite</a>
       </div>
     </main>
+
+    <!-- Lightbox für vergrößerte Bilder -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" onclick="closeLightbox()">×</button>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="Vergrößertes Bild" />
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer></footer>
@@ -288,6 +363,26 @@
       if (localStorage.getItem("passwordConfirmed") !== "true") {
         window.location.href = "index.html";
       }
+
+      // Lightbox-Funktionen
+      function openLightbox(imageSrc) {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        lightboxImg.src = imageSrc;
+        lightbox.classList.add("active");
+      }
+
+      function closeLightbox() {
+        const lightbox = document.getElementById("lightbox");
+        lightbox.classList.remove("active");
+      }
+
+      // Schließe Lightbox beim Klicken außerhalb des Bildes
+      document.getElementById("lightbox").addEventListener("click", function(e) {
+        if (e.target === this) {
+          closeLightbox();
+        }
+      });
     </script>
   </body>
 </html>
