@@ -108,19 +108,31 @@
         text-align: left;
       }
 
-      /* Platzhalter-Text oben */
-      .intro-text {
-        color: var(--dark-text);
-        font-size: 1rem;
-        line-height: 1.8;
+      /* Bildgalerie für die oberen Bilder */
+      .top-images {
+        display: flex;
+        gap: 1rem;
         margin-bottom: 2rem;
-        text-align: left;
-        max-width: 800px;
-        font-style: italic;
-        color: #888;
+        flex-wrap: wrap;
       }
 
-      /* Platzhalter-Text für Hauptinhalt */
+      .top-images img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .image-caption {
+        text-align: center;
+        font-style: italic;
+        color: var(--dark-text);
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      /* Text für Hauptinhalt */
       .musik-text {
         color: var(--dark-text);
         font-size: 1rem;
@@ -262,8 +274,13 @@
           justify-content: center;
         }
 
-        .intro-text, .musik-text {
+        .musik-text {
           text-align: center;
+        }
+
+        .top-images {
+          flex-direction: column;
+          align-items: center;
         }
       }
     </style>
@@ -302,72 +319,4 @@
         <span>🎙️ Bevorzugt Podcasts über Wirtschaftskriminalität</span>
         <span>🍜 Bestellt bei Marubi immer die 71</span>
         <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
-        <span>🧀 J'aime le fromage</span>
-      </div>
-    </div>
-
-    <!-- Main Content -->
-    <main>
-      <h1 class="page-title">Musik</h1>
-
-      <!-- Platzhalter-Text oben -->
-      <p class="intro-text">
-        [Hier kannst du einen kurzen Einführungstext schreiben.]
-      </p>
-
-      <!-- Platzhalter-Text für Hauptinhalt -->
-      <p class="musik-text">
-        [Hier steht später dein Text zur Musik. Dies ist ein Platzhalter, um das Layout zu testen.
-        Du kannst diesen Text einfach durch deinen eigenen Inhalt ersetzen.]
-      </p>
-
-      <!-- Galerie für Musik-Bilder (ohne spezifische Bildverweise) -->
-      <div class="gallery">
-        <!-- Hier können später Bilder dynamisch hinzugefügt werden -->
-      </div>
-
-      <!-- Zurück-Button -->
-      <div class="button-container">
-        <a href="index.html" class="button">Zurück zur Hauptseite</a>
-      </div>
-    </main>
-
-    <!-- Lightbox für vergrößerte Bilder (bleibt als Platzhalter) -->
-    <div class="lightbox" id="lightbox">
-      <button class="lightbox-close" onclick="closeLightbox()">×</button>
-      <div class="lightbox-content">
-        <img id="lightbox-img" src="" alt="Vergrößertes Bild" />
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer></footer>
-
-    <script>
-      // Prüfe, ob Passwort bereits bestätigt wurde
-      if (localStorage.getItem("passwordConfirmed") !== "true") {
-        window.location.href = "index.html";
-      }
-
-      // Lightbox-Funktionen (bleiben als Platzhalter)
-      function openLightbox(imageSrc) {
-        const lightbox = document.getElementById("lightbox");
-        const lightboxImg = document.getElementById("lightbox-img");
-        lightboxImg.src = imageSrc;
-        lightbox.classList.add("active");
-      }
-
-      function closeLightbox() {
-        const lightbox = document.getElementById("lightbox");
-        lightbox.classList.remove("active");
-      }
-
-      // Schließe Lightbox beim Klicken außerhalb des Bildes
-      document.getElementById("lightbox").addEventListener("click", function(e) {
-        if (e.target === this) {
-          closeLightbox();
-        }
-      });
-    </script>
-  </body>
-</html>
+       
