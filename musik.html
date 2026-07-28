@@ -29,6 +29,7 @@
         overflow-x: hidden;
       }
 
+      /* Top Banner */
       .top-banner {
         background-color: #000000;
         color: white;
@@ -39,6 +40,7 @@
         letter-spacing: 0.05em;
       }
 
+      /* Header */
       header {
         background-color: var(--secondary-color);
         padding: 1rem 2rem;
@@ -66,6 +68,7 @@
         font-style: italic;
       }
 
+      /* Marquee Banner */
       .marquee-container {
         background-color: #c8d0c8;
         color: var(--primary-color);
@@ -89,6 +92,7 @@
         margin-right: 3rem;
       }
 
+      /* Main Content */
       main {
         max-width: 1200px;
         margin: 2rem auto;
@@ -104,6 +108,7 @@
         text-align: left;
       }
 
+      /* Bilder oben */
       .top-images {
         display: flex;
         gap: 2rem;
@@ -128,15 +133,7 @@
         font-size: 1rem;
       }
 
-      .musik-text {
-        color: var(--dark-text);
-        font-size: 1rem;
-        line-height: 1.8;
-        margin-bottom: 2rem;
-        text-align: left;
-        max-width: 800px;
-      }
-
+      /* Button */
       .button-container {
         display: flex;
         justify-content: flex-start;
@@ -161,6 +158,7 @@
         transform: translateY(-2px);
       }
 
+      /* Lightbox */
       .lightbox {
         position: fixed;
         top: 0;
@@ -199,6 +197,7 @@
         border: none;
       }
 
+      /* Footer */
       footer {
         background-color: var(--secondary-color);
         padding: 1rem 0;
@@ -206,12 +205,22 @@
         border-top: 1px solid #dcd6cc;
       }
 
+      /* Animation */
       @keyframes marquee {
         0% { transform: translateX(0); }
         100% { transform: translateX(-50%); }
       }
 
+      /* Responsive */
       @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .marquee-content span {
+          font-size: 0.9rem;
+          margin-right: 1.5rem;
+        }
         .top-images {
           flex-direction: column;
           align-items: center;
@@ -220,24 +229,24 @@
         .button-container {
           justify-content: center;
         }
-        .musik-text {
-          text-align: center;
-        }
       }
     </style>
   </head>
 
   <body>
+    <!-- Top Banner -->
     <div class="top-banner">
       <span>🔥 new hot Application</span>
     </div>
 
+    <!-- Header -->
     <header>
       <div class="header-content">
         <a href="index.html" class="logo">Teresa für <span class="italic">Paper & Tea</span></a>
       </div>
     </header>
 
+    <!-- Marquee Banner -->
     <div class="marquee-container">
       <div class="marquee-content">
         <span>🎨 Hat geweint als sie „Frau mit Schirm“ von Monet in echt gesehen hat</span>
@@ -249,6 +258,7 @@
         <span>🍜 Bestellt bei Marubi immer die 71</span>
         <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
         <span>🧀 J'aime le fromage</span>
+        <!-- Wiederholung für nahtlosen Übergang -->
         <span>🎨 Hat geweint als sie „Frau mit Schirm“ von Monet in echt gesehen hat</span>
         <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
         <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
@@ -261,26 +271,24 @@
       </div>
     </div>
 
+    <!-- Main Content -->
     <main>
       <h1 class="page-title">Musik</h1>
 
       <!-- Bilder mit Unterschrift -->
       <div class="top-images">
-        <img src="m1.jepeg" alt="Musikbild 1" onclick="openLightbox(this.src)" />
-        <img src="m2.jepeg" alt="Musikbild 2" onclick="openLightbox(this.src)" />
+        <img src="musik/m1.jepeg.PNG" alt="Musikbild 1" onclick="openLightbox(this.src)" />
+        <img src="musik/m2.jepeg.PNG" alt="Musikbild 2" onclick="openLightbox(this.src)" />
       </div>
       <p class="image-caption">Cant Lie about that</p>
 
-      <!-- Text ersetzt durch "Cant Lie about that" -->
-      <p class="musik-text">
-        Cant Lie about that
-      </p>
-
+      <!-- Zurück-Button -->
       <div class="button-container">
         <a href="index.html" class="button">Zurück zur Hauptseite</a>
       </div>
     </main>
 
+    <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
       <button class="lightbox-close" onclick="closeLightbox()">×</button>
       <div class="lightbox-content">
@@ -288,13 +296,16 @@
       </div>
     </div>
 
+    <!-- Footer -->
     <footer></footer>
 
     <script>
+      // Passwortprüfung
       if (localStorage.getItem("passwordConfirmed") !== "true") {
         window.location.href = "index.html";
       }
 
+      // Lightbox-Funktionen
       function openLightbox(imageSrc) {
         const lightbox = document.getElementById("lightbox");
         const lightboxImg = document.getElementById("lightbox-img");
@@ -306,8 +317,11 @@
         document.getElementById("lightbox").classList.remove("active");
       }
 
+      // Schließe Lightbox beim Klicken außerhalb des Bildes
       document.getElementById("lightbox").addEventListener("click", function(e) {
-        if (e.target === this) closeLightbox();
+        if (e.target === this) {
+          closeLightbox();
+        }
       });
     </script>
   </body>
