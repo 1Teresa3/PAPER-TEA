@@ -133,10 +133,10 @@
         font-size: 1rem;
       }
 
-      /* SoundCloud-Player */
+      /* SoundCloud-Player (verkleinert) */
       .soundcloud-embed {
         margin: 2rem auto;
-        max-width: 100%;
+        max-width: 600px; /* Feste maximale Breite */
         width: 100%;
         border-radius: 8px;
         overflow: hidden;
@@ -339,6 +339,9 @@
         .video-container iframe {
           height: 300px;
         }
+        .soundcloud-embed iframe {
+          height: 166px; /* Kompakte Höhe auf Mobilgeräten */
+        }
       }
     </style>
   </head>
@@ -392,11 +395,11 @@
       </div>
       <p class="image-caption">Can’t lie about that</p>
 
-      <!-- SoundCloud-Player -->
+      <!-- SoundCloud-Player (verkleinert auf 166px Höhe) -->
       <div class="soundcloud-embed">
         <iframe
           width="100%"
-          height="300"
+          height="166"
           scrolling="no"
           frameborder="no"
           allow="autoplay; encrypted-media"
