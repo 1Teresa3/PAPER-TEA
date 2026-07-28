@@ -109,28 +109,36 @@
       }
 
       /* Bilder oben (kleiner angepasst) */
-      .top-images {
+      .image-row {
         display: flex;
         gap: 2rem;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         flex-wrap: wrap;
         justify-content: center;
       }
 
-      .top-images img {
-        max-width: 300px; /* Kleiner als vorher (400px) */
+      .image-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 300px;
+      }
+
+      .image-item img {
+        max-width: 300px;
         height: auto;
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         cursor: pointer;
+        margin-bottom: 0.5rem;
       }
 
       .image-caption {
         text-align: center;
         font-style: italic;
         color: var(--dark-text);
-        margin: 0.5rem 0 2rem 0;
-        font-size: 1rem;
+        font-size: 0.9rem;
+        margin-top: 0;
       }
 
       /* SoundCloud-Player */
@@ -265,7 +273,7 @@
           font-size: 0.9rem;
           margin-right: 1.5rem;
         }
-        .top-images {
+        .image-row {
           flex-direction: column;
           align-items: center;
           gap: 1rem;
@@ -322,7 +330,7 @@
     <main>
       <h1 class="page-title">Musik</h1>
 
-      <!-- Bilder mit Unterschrift (neue Bilder, kleiner) -->
+      <!-- Erste Reihe: SoundCloud + Can't lie about that -->
       <div class="top-images">
         <img src="musik/IMG_2406.PNG" alt="Musikbild 1" onclick="openLightbox(this.src)" />
         <img src="musik/IMG_2407.PNG" alt="Musikbild 2" onclick="openLightbox(this.src)" />
@@ -347,6 +355,38 @@
       <p class="set-caption">
         Seit Jahren mein Lieblingsset. Kopfhörer rein, nach hinten lehnen und Augen zu #waitforit
       </p>
+
+      <!-- Zweite Reihe: petra.jpeg und pohlmann.jpeg -->
+      <div class="image-row">
+        <div class="image-item">
+          <img src="musik/petra.jpeg" alt="Meine erste CD" onclick="openLightbox(this.src)" />
+          <p class="image-caption">Meine erste CD die ich gekauft habe</p>
+        </div>
+        <div class="image-item">
+          <img src="musik/pohlmann.jpeg" alt="Bestes Album" onclick="openLightbox(this.src)" />
+          <p class="image-caption">Bestes Album, sorry Benito mi amor</p>
+        </div>
+      </div>
+
+      <!-- Dritte Reihe: dn.jpeg und jim.jpeg -->
+      <div class="image-row">
+        <div class="image-item">
+          <img src="musik/dn.jpeg" alt="Erstes Konzert" onclick="openLightbox(this.src)" />
+          <p class="image-caption">Mein erstes Konzert war Deez Nuts</p>
+        </div>
+        <div class="image-item">
+          <img src="musik/jim.jpeg" alt="Crush" onclick="openLightbox(this.src)" />
+          <p class="image-caption">Crush</p>
+        </div>
+      </div>
+
+      <!-- Vierte Reihe: IMG_7527.HEIC (zentriert) -->
+      <div class="image-row">
+        <div class="image-item">
+          <img src="musik/IMG_7527.HEIC" alt="Grab in Paris" onclick="openLightbox(this.src)" />
+          <p class="image-caption">Grab von Crush in Paris</p>
+        </div>
+      </div>
 
       <!-- Zurück-Button -->
       <div class="button-container">
