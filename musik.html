@@ -141,19 +141,39 @@
         border-radius: 8px;
         overflow: hidden;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        background-color: var(--secondary-color);
+        padding: 1rem;
       }
 
       .soundcloud-embed iframe {
         border: none;
         background: transparent;
         width: 100%;
+        margin-bottom: 0.5rem;
+      }
+
+      .soundcloud-credit {
+        font-size: 0.8rem;
+        color: #999;
+        text-align: center;
+        font-family: var(--font-primary);
+        line-break: anywhere;
+        word-break: normal;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .soundcloud-credit a {
+        color: #999;
+        text-decoration: none;
       }
 
       .set-caption {
         text-align: center;
         font-size: 1rem;
         color: var(--dark-text);
-        margin-top: 1rem;
+        margin-top: 1.5rem;
         line-height: 1.6;
       }
 
@@ -309,16 +329,20 @@
       </div>
       <p class="image-caption">Cant Lie about that</p>
 
-      <!-- SoundCloud-Player -->
+      <!-- SoundCloud-Player (mit deinem getesteten iframe-Code) -->
       <div class="soundcloud-embed">
         <iframe
           width="100%"
-          height="200"
+          height="300"
           scrolling="no"
           frameborder="no"
-          allow="autoplay"
-          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1654813234&color=%23d4c4b0&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false">
+          allow="autoplay; encrypted-media"
+          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A1336449721&color=%23d4c4b0&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
         </iframe>
+        <div class="soundcloud-credit">
+          <a href="https://soundcloud.com/windfuhr" title="WINDFUHR" target="_blank">WINDFUHR</a> ·
+          <a href="https://soundcloud.com/windfuhr/windfuhr-garbicz-2022-wald-stage" title="WINDFUHR - GARBICZ 2022 WALD STAGE" target="_blank">WINDFUHR - GARBICZ 2022 WALD STAGE</a>
+        </div>
       </div>
       <p class="set-caption">
         Seit Jahren mein Lieblingsset. Kopfhörer ein, nach hinten lehnen und Augen zu #waitforit
