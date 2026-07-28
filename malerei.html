@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Malerei | Teresa für Paper & Tea</title>
+    <style>
+      :root {
+        --primary-color: #f9f7f4;
+        --secondary-color: #f0ece7;
+        --accent-color: #d4c4b0;
+        --text-color: #5a5a5a;
+        --dark-text: #4a4a4a;
+        --font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        --font-secondary: 'Georgia', serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-primary);
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Top Banner */
+      .top-banner {
+        background-color: #000000;
+        color: white;
+        text-align: center;
+        padding: 0.6rem 0;
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+      }
+
+      /* Header */
+      header {
+        background-color: var(--secondary-color);
+        padding: 1rem 2rem;
+        border-bottom: 1px solid #dcd6cc;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .logo {
+        font-family: var(--font-secondary);
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: var(--dark-text);
+        text-decoration: none;
+      }
+
+      .logo .italic {
+        font-style: italic;
+      }
+
+      /* Marquee Banner */
+      .marquee-container {
+        background-color: #c8d0c8;
+        color: var(--primary-color);
+        padding: 0.8rem 0;
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+        z-index: 1;
+      }
+
+      .marquee-content {
+        display: inline-block;
+        animation: marquee 40s linear infinite;
+        white-space: nowrap;
+      }
+
+      .marquee-content span {
+        font-size: 1.1rem;
+        font-weight: 300;
+        letter-spacing: 0.1em;
+        margin-right: 3rem;
+      }
+
+      /* Main Content */
+      main {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 2rem;
+      }
+
+      .page-title {
+        font-family: var(--font-secondary);
+        font-size: 2.5rem;
+        font-weight: 300;
+        color: var(--dark-text);
+        margin-bottom: 2rem;
+        text-align: left;
+      }
+
+      /* Galerie für Malerei */
+      .gallery-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .gallery-item {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.05);
+      }
+
+      .gallery-caption {
+        font-style: italic;
+        color: var(--text-color);
+        margin-top: 0.5rem;
+        text-align: center;
+      }
+
+      /* Textbereich */
+      .about-text {
+        font-size: 1rem;
+        color: var(--dark-text);
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        text-align: left;
+      }
+
+      /* Button */
+      .button-container {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 1rem;
+      }
+
+      .button {
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s, transform 0.2s;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .button:hover {
+        background-color: #b8a894;
+        transform: translateY(-2px);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--secondary-color);
+        padding: 1rem 0;
+        text-align: center;
+        border-top: 1px solid #dcd6cc;
+      }
+
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .marquee-content span {
+          font-size: 0.9rem;
+          margin-right: 1.5rem;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .button-container {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+      <span>🔥 new hot Application</span>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <a href="index.html" class="logo">Teresa für <span class="italic">Paper & Tea</span></a>
+      </div>
+    </header>
+
+    <!-- Marquee Banner -->
+    <div class="marquee-container">
+      <div class="marquee-content">
+        <span>🎨 Liebt es, Farben auf Leinwand zum Leben zu erwecken</span>
+        <span>🖌️ Experimentiert mit Aquarell und Acryl</span>
+        <span>🌄 Findet Inspiration in der Natur und im Alltag</span>
+        <span>🖼️ Träumt davon, eines Tages eine eigene Ausstellung zu haben</span>
+        <span>🎨 Hat geweint als sie „Frau mit Schirm“ von Monet in echt gesehen hat</span>
+        <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
+        <!-- Wiederholung für nahtlosen Übergang -->
+        <span>🎨 Liebt es, Farben auf Leinwand zum Leben zu erwecken</span>
+        <span>🖌️ Experimentiert mit Aquarell und Acryl</span>
+        <span>🌄 Findet Inspiration in der Natur und im Alltag</span>
+        <span>🖼️ Träumt davon, eines Tages eine eigene Ausstellung zu haben</span>
+        <span>🎨 Hat geweint als sie „Frau mit Schirm“ von Monet in echt gesehen hat</span>
+        <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+      <h1 class="page-title">Malerei</h1>
+
+      <!-- Galerie mit Bildern aus dem malerei-Ordner -->
+      <div class="gallery-container">
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="malerei/bild1.jpeg" alt="Kunstwerk 1" />
+            <p class="gallery-caption">Bild 1 - Acryl auf Leinwand</p>
+          </div>
+          <div class="gallery-item">
+            <img src="malerei/bild2.jpeg" alt="Kunstwerk 2" />
+            <p class="gallery-caption">Bild 2 - Aquarell</p>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <p>
+            Hier findest du eine Auswahl meiner künstlerischen Arbeiten. Jedes Bild erzählt eine eigene Geschichte und ist ein Ausdruck meiner Kreativität und Leidenschaft für die Malerei.
+          </p>
+          <p>
+            Ich arbeite hauptsächlich mit Acryl und Aquarell, aber ich liebe es auch, neue Techniken auszuprobieren. Die Natur und meine Umgebung sind meine größten Inspirationsquellen.
+          </p>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <a href="index.html" class="button">Zurück zur Hauptseite</a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer></footer>
+
+    <script>
+      // Prüfe, ob Passwort bereits bestätigt wurde
+      if (localStorage.getItem("passwordConfirmed") !== "true") {
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>
