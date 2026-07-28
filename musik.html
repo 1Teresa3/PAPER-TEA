@@ -321,14 +321,9 @@
         Du kannst diesen Text einfach durch deinen eigenen Inhalt ersetzen.]
       </p>
 
-      <!-- Galerie für Musik-Bilder -->
+      <!-- Galerie für Musik-Bilder (ohne spezifische Bildverweise) -->
       <div class="gallery">
-        <div class="gallery-item" onclick="openLightbox('musik/m1.jpeg.PNG')">
-          <img src="musik/m1.jpeg.PNG" alt="Musikbild 1" />
-        </div>
-        <div class="gallery-item" onclick="openLightbox('musik/m2.jpeg.PNG')">
-          <img src="musik/m2.jpeg.PNG" alt="Musikbild 2" />
-        </div>
+        <!-- Hier können später Bilder dynamisch hinzugefügt werden -->
       </div>
 
       <!-- Zurück-Button -->
@@ -337,7 +332,7 @@
       </div>
     </main>
 
-    <!-- Lightbox für vergrößerte Bilder -->
+    <!-- Lightbox für vergrößerte Bilder (bleibt als Platzhalter) -->
     <div class="lightbox" id="lightbox">
       <button class="lightbox-close" onclick="closeLightbox()">×</button>
       <div class="lightbox-content">
@@ -354,7 +349,7 @@
         window.location.href = "index.html";
       }
 
-      // Lightbox-Funktionen
+      // Lightbox-Funktionen (bleiben als Platzhalter)
       function openLightbox(imageSrc) {
         const lightbox = document.getElementById("lightbox");
         const lightboxImg = document.getElementById("lightbox-img");
