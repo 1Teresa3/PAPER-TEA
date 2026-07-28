@@ -109,36 +109,28 @@
       }
 
       /* Bilder oben (kleiner angepasst) */
-      .image-row {
+      .top-images {
         display: flex;
         gap: 2rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         flex-wrap: wrap;
         justify-content: center;
       }
 
-      .image-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        max-width: 300px;
-      }
-
-      .image-item img {
-        max-width: 300px;
+      .top-images img {
+        max-width: 200px;
         height: auto;
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         cursor: pointer;
-        margin-bottom: 0.5rem;
       }
 
       .image-caption {
         text-align: center;
         font-style: italic;
         color: var(--dark-text);
-        font-size: 0.9rem;
-        margin-top: 0;
+        margin: 0.5rem 0 2rem 0;
+        font-size: 1rem;
       }
 
       /* SoundCloud-Player */
@@ -181,8 +173,68 @@
         text-align: center;
         font-size: 1rem;
         color: var(--dark-text);
-        margin-top: 1.5rem;
+        margin: 2rem 0;
         line-height: 1.6;
+      }
+
+      /* Bildreihen */
+      .image-row {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .image-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 300px;
+      }
+
+      .image-item img {
+        max-width: 300px;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+      }
+
+      .image-item .image-caption {
+        text-align: center;
+        font-style: italic;
+        color: var(--dark-text);
+        font-size: 0.9rem;
+        margin-top: 0;
+      }
+
+      /* Video-Container */
+      .video-container {
+        margin: 3rem auto;
+        max-width: 800px;
+        width: 100%;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        background-color: var(--secondary-color);
+        padding: 1rem;
+      }
+
+      .video-container iframe {
+        width: 100%;
+        height: 450px;
+        border: none;
+      }
+
+      .video-caption {
+        text-align: center;
+        font-size: 1rem;
+        color: var(--dark-text);
+        margin-top: 1rem;
+        line-height: 1.6;
+        font-style: italic;
       }
 
       /* Button */
@@ -273,16 +325,19 @@
           font-size: 0.9rem;
           margin-right: 1.5rem;
         }
-        .image-row {
+        .top-images, .image-row {
           flex-direction: column;
           align-items: center;
-          gap: 1rem;
+          gap: 1.5rem;
         }
         .button-container {
           justify-content: center;
         }
-        .soundcloud-embed {
+        .soundcloud-embed, .video-container {
           max-width: 100%;
+        }
+        .video-container iframe {
+          height: 300px;
         }
       }
     </style>
@@ -330,7 +385,7 @@
     <main>
       <h1 class="page-title">Musik</h1>
 
-      <!-- Erste Reihe: SoundCloud + Can't lie about that -->
+      <!-- Erste Reihe: Bilder mit "Can’t lie about that" -->
       <div class="top-images">
         <img src="musik/IMG_2406.PNG" alt="Musikbild 1" onclick="openLightbox(this.src)" />
         <img src="musik/IMG_2407.PNG" alt="Musikbild 2" onclick="openLightbox(this.src)" />
@@ -360,7 +415,7 @@
       <div class="image-row">
         <div class="image-item">
           <img src="musik/petra.jpeg" alt="Meine erste CD" onclick="openLightbox(this.src)" />
-          <p class="image-caption">Meine erste CD die ich gekauft habe</p>
+          <p class="image-caption">Meine erste CD, die ich gekauft habe</p>
         </div>
         <div class="image-item">
           <img src="musik/pohlmann.jpeg" alt="Bestes Album" onclick="openLightbox(this.src)" />
@@ -387,6 +442,19 @@
           <p class="image-caption">Grab von Crush in Paris</p>
         </div>
       </div>
+
+      <!-- Video am Ende -->
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/DEIN_VIDEO_ID"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="video-caption">
+        Persönliche Empfehlung, besonders der Song ab Minute 24:10
+      </p>
 
       <!-- Zurück-Button -->
       <div class="button-container">
