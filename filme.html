@@ -108,12 +108,21 @@
         text-align: left;
       }
 
-      /* Filme-Galerie (identisch zu Bücher-Galerie) */
+      .section-title {
+        font-family: var(--font-secondary);
+        font-size: 2rem;
+        font-weight: 300;
+        color: var(--dark-text);
+        margin: 2rem 0 1.5rem 0;
+        text-align: left;
+      }
+
+      /* Filme-Galerie */
       .films-gallery {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
-        margin: 2rem 0;
+        margin-bottom: 2rem;
       }
 
       .film-card {
@@ -155,11 +164,6 @@
         color: var(--text-color);
         line-height: 1.7;
         margin-bottom: 0.8rem;
-      }
-
-      .hashtag {
-        color: var(--accent-color);
-        font-weight: 500;
       }
 
       .placeholder-text {
@@ -274,55 +278,58 @@
     <main>
       <h1 class="page-title">Filme</h1>
 
-      <!-- Filme-Galerie - Erste Reihe (f1, f2, f3) -->
+      <!-- Filme-Galerie - Erste Reihe -->
       <div class="films-gallery">
         <figure class="film-card">
-          <img src="fs/f1.jpeg" alt="Film 1" class="film-image">
+          <img src="fs/f1.jpeg" alt="Call Me by Your Name" class="film-image">
           <figcaption class="film-caption">
-            <h3>Platzhalter Titel</h3>
+            <h3>Call Me by Your Name</h3>
             <p class="placeholder-text">Hier könnte eine Beschreibung des Films stehen. Vielleicht eine persönliche Empfehlung oder eine Anekdote dazu.</p>
           </figcaption>
         </figure>
 
         <figure class="film-card">
-          <img src="fs/f2.jpeg" alt="Film 2" class="film-image">
+          <img src="fs/f2.jpeg" alt="Metropolis" class="film-image">
           <figcaption class="film-caption">
-            <h3>Platzhalter Titel</h3>
+            <h3>Metropolis</h3>
             <p class="placeholder-text">Beschreibung für den zweiten Film. Erkläre, warum dieser Film besonders ist.</p>
           </figcaption>
         </figure>
 
         <figure class="film-card">
-          <img src="fs/f3.jpeg" alt="Film 3" class="film-image">
+          <img src="fs/f3.jpeg" alt="Perfect Days" class="film-image">
           <figcaption class="film-caption">
-            <h3>Platzhalter Titel</h3>
+            <h3>Perfect Days</h3>
             <p class="placeholder-text">Text über den dritten Film. Vielleicht eine Verbindung zu deinen eigenen Erfahrungen.</p>
           </figcaption>
         </figure>
       </div>
 
-      <!-- Filme-Galerie - Zweite Reihe (s1, s2, s3) -->
+      <!-- Überschrift für Serien -->
+      <h2 class="section-title">Serien</h2>
+
+      <!-- Serien-Galerie - Zweite Reihe -->
       <div class="films-gallery">
         <figure class="film-card">
-          <img src="fs/s1.jpeg" alt="Film 4" class="film-image">
+          <img src="fs/s1.jpeg" alt="Emily in Paris" class="film-image">
           <figcaption class="film-caption">
-            <h3>Platzhalter Titel</h3>
-            <p class="placeholder-text">Beschreibung für den vierten Film. Füge hier Details hinzu, die Leser neugierig machen.</p>
+            <h3>Emily in Paris</h3>
+            <p class="placeholder-text">Beschreibung für die erste Serie. Füge hier Details hinzu, die Leser neugierig machen.</p>
           </figcaption>
         </figure>
 
         <figure class="film-card">
-          <img src="fs/s2.jpeg" alt="Film 5" class="film-image">
+          <img src="fs/s2.jpeg" alt="Love, Death + Robots" class="film-image">
           <figcaption class="film-caption">
-            <h3>Platzhalter Titel</h3>
-            <p class="placeholder-text">Hier könnte stehen, warum dieser Film in deiner Sammlung nicht fehlen darf.</p>
+            <h3>Love, Death + Robots</h3>
+            <p class="placeholder-text">Hier könnte stehen, warum diese Serie in deiner Sammlung nicht fehlen darf.</p>
           </figcaption>
         </figure>
 
         <figure class="film-card">
-          <img src="fs/s3.jpeg" alt="Film 6" class="film-image">
+          <img src="fs/s3.jpeg" alt="Ramy" class="film-image">
           <figcaption class="film-caption">
-            <h3>Platzhalter Titel</h3>
+            <h3>Ramy</h3>
             <p class="placeholder-text">Letzter Platzhalter-Text. Ersetze mich mit deinem eigenen Inhalt.</p>
           </figcaption>
         </figure>
