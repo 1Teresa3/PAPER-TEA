@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teresa für Paper & Tea</title>
+    <style>
+      :root {
+        --primary-color: #f9f7f4;
+        --secondary-color: #f0ece7;
+        --accent-color: #d4c4b0;
+        --text-color: #5a5a5a;
+        --dark-text: #4a4a4a;
+        --font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        --font-secondary: 'Georgia', serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-primary);
+        background-color: var(--primary-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Password Protection */
+      #password-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(200, 208, 200, 0.95);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        flex-direction: column;
+      }
+
+      #password-form {
+        background-color: var(--secondary-color);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+      }
+
+      #password-input {
+        width: 100%;
+        padding: 0.8rem;
+        margin: 1rem 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+        background-color: var(--primary-color);
+      }
+
+      #password-button {
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+      }
+
+      #password-button:hover {
+        background-color: #b8a894;
+      }
+
+      #password-error {
+        color: #d32f2f;
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      /* Top Banner */
+      .top-banner {
+        background-color: #000000;
+        color: white;
+        text-align: center;
+        padding: 0.6rem 0;
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+      }
+
+      /* Header */
+      header {
+        background-color: var(--secondary-color);
+        padding: 1rem 2rem;
+        border-bottom: 1px solid #dcd6cc;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .logo {
+        font-family: var(--font-secondary);
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: var(--dark-text);
+        text-decoration: none;
+      }
+
+      .logo .italic {
+        font-style: italic;
+      }
+
+      /* Marquee Banner - Text (oben) */
+      .marquee-container {
+        background-color: #c8d0c8;
+        color: var(--primary-color);
+        padding: 0.8rem 0;
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+        z-index: 1;
+      }
+
+      .marquee-content {
+        display: inline-block;
+        animation: marquee 40s linear infinite;
+        white-space: nowrap;
+      }
+
+      .marquee-content span {
+        font-size: 1.1rem;
+        font-weight: 300;
+        letter-spacing: 0.1em;
+        margin-right: 3rem;
+      }
+
+      /* Marquee Banner - Bilder (unten) */
+      .marquee-image-container {
+        background-color: #c8d0c8;
+        padding: 2rem 0;
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+        z-index: 1;
+      }
+
+      .marquee-image-content {
+        display: inline-block;
+        animation: marquee 45s linear infinite;
+        white-space: nowrap;
+      }
+
+      .marquee-image-content img {
+        height: 100px;
+        width: auto;
+        margin-right: 2.5rem;
+        vertical-align: middle;
+        border-radius: 4px;
+        object-fit: contain;
+      }
+
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+
+      /* Main Content */
+      main {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 2rem;
+      }
+
+      .hero {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+        color: #000000;
+        font-family: var(--font-primary);
+        text-align: left;
+      }
+
+      /* Category Tiles */
+      .category-tiles {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .category-tile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        background-color: var(--secondary-color);
+        border: 1px solid #dcd6cc;
+        border-radius: 8px;
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.3s;
+        height: 80px;
+      }
+
+      .category-tile:hover {
+        background-color: var(--accent-color);
+        color: var(--primary-color);
+        border-color: #a89c90;
+        transform: translateY(-2px);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--secondary-color);
+        padding: 1rem 0;
+        text-align: center;
+        border-top: 1px solid #dcd6cc;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+          text-align: center;
+        }
+
+        .marquee-content span {
+          font-size: 0.9rem;
+          margin-right: 1.5rem;
+        }
+
+        .marquee-image-content img {
+          height: 70px;
+          margin-right: 1.5rem;
+        }
+
+        .marquee-image-container {
+          padding: 1rem 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+      <span>🔥 new hot Application</span>
+    </div>
+
+    <!-- Password Protection Overlay -->
+    <div id="password-overlay">
+      <div id="password-form">
+        <h2>Passwortgeschützt</h2>
+        <p>Bitte geben Sie das Passwort ein:</p>
+        <input type="password" id="password-input" placeholder="Passwort eingeben" />
+        <button id="password-button">Eintritt</button>
+        <p id="password-error" style="display: none;">Falsches Passwort. Bitte versuchen Sie es erneut.</p>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <a href="index.html" class="logo">Teresa für <span class="italic">Paper & Tea</span></a>
+      </div>
+    </header>
+
+    <!-- Marquee Banner - Text (oben) -->
+    <div class="marquee-container">
+      <div class="marquee-content">
+        <span>🤸🏻 mag es morgens zum Sport zu gehen</span>
+        <span>🎨 Hat geweint als sie „Frau mit Schirm“ von Monet in echt gesehen hat</span>
+        <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
+        <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
+        <span>💖 Ist stolz darauf wer ihre Freunde sind</span>
+        <span>💭 Ist der Meinung Neid ist ein falsch verstandenes Gefühl</span>
+        <span>🎙️ Bevorzugt Podcasts über Wirtschaftskriminalität</span>
+        <span>🍜 Bestellt bei Marubi immer die 71</span>
+        <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
+        <span>🧀 J'aime le fromage</span>
+        <!-- Wiederholung für nahtlosen Übergang -->
+        <span>🤸🏻 mag es morgens zum Sport zu gehen</span>
+        <span>🎨 Hat geweint als sie „Frau mit Schirm“ von Monet in echt gesehen hat</span>
+        <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
+        <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
+        <span>💖 Ist stolz darauf wer ihre Freunde sind</span>
+        <span>💭 Ist der Meinung Neid ist ein falsch verstandenes Gefühl</span>
+        <span>🎙️ Bevorzugt Podcasts über Wirtschaftskriminalität</span>
+        <span>🍜 Bestellt bei Marubi immer die 71</span>
+        <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
+        <span>🧀 J'aime le fromage</span>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+      <section class="hero">
+        <p>
+          Hallo Paper & Tea-Team,
+          um euch mein „Können“ zu zeigen, hatte ich ursprünglich eine Canvas-Präsentation erstellt. Die eine Freundin meinte, meine Präsentation sei „toll“, die andere meinte: „Girl, du kannst mehr." Allerdings bin ich der Meinung, dass mein Skills Canvas-Präsentationen zu erstellen einfach Nachholbedarf haben. In der Uni gab es immer jemanden, der mehr Talent hatte. Ein anderer Freund, der im Marketing arbeitet, meinte, dass heutzutage bei Neueinstellungen immer darauf geschaut wird, ob man mit KI umgehen kann... Ohne Portfolio kann man viel erzählen, wenn der Tee heiß ist. Also bin ich zu dem Schluss gekommen, anstatt eine so la-la-Präsi als Bewerbung bei euch einzureichen, meine Skills aus der Data Analytics-Weiterbildung mit K.I. zu kombinieren und euch eine Website zu bauen 👩🏻‍💻
+        </p>
+        <div class="category-tiles">
+          <a href="about-me.html" class="category-tile">About me</a>
+          <a href="fotografie.html" class="category-tile">Fotografie</a>
+          <a href="malerei.html" class="category-tile">Malerei</a>
+          <a href="musik.html" class="category-tile">Musik</a>
+          <a href="buecher.html" class="category-tile">Bücher</a>
+          <a href="filme.html" class="category-tile">Filme & Serien</a>
+          <a href="gefuehle.html" class="category-tile">Gefühle</a>
+          <a href="kurzgeschichte.html" class="category-tile">Kurzgeschichte</a>
+          <a href="laufbahn.html" class="category-tile">Laufbahn</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Marquee Banner - Bilder (unten) -->
+    <div class="marquee-image-container">
+      <div class="marquee-image-content">
+        <img src="images/B1.jpeg" alt="Bild 1" />
+        <img src="images/B2.jpeg" alt="Bild 2" />
+        <img src="images/B3.jpeg" alt="Bild 3" />
+        <img src="images/B4.jpeg" alt="Bild 4" />
+        <img src="images/B5.jpeg" alt="Bild 5" />
+        <img src="images/B6.jpeg" alt="Bild 6" />
+        <img src="images/B7.jpeg" alt="Bild 7" />
+        <img src="images/B10.jpeg" alt="Bild 10" />
+        <img src="images/B11.jpeg" alt="Bild 11" />
+        <img src="images/B12.jpeg" alt="Bild 12" />
+        <img src="images/B13.jpeg" alt="Bild 13" />
+        <img src="images/B14.jpeg" alt="Bild 14" />
+        <img src="images/B15.jpeg" alt="Bild 15" />
+        <img src="images/B16.jpeg" alt="Bild 16" />
+        <img src="images/B17.jpeg" alt="Bild 17" />
+        <img src="images/B18.jpeg" alt="Bild 18" />
+        <img src="images/B19.jpeg" alt="Bild 19" />
+        <img src="images/B20.jpeg" alt="Bild 20" />
+        <img src="images/B1.jpeg" alt="Bild 1" />
+        <img src="images/B2.jpeg" alt="Bild 2" />
+        <img src="images/B3.jpeg" alt="Bild 3" />
+        <img src="images/B4.jpeg" alt="Bild 4" />
+        <img src="images/B5.jpeg" alt="Bild 5" />
+        <img src="images/B6.jpeg" alt="Bild 6" />
+        <img src="images/B7.jpeg" alt="Bild 7" />
+        <img src="images/B10.jpeg" alt="Bild 10" />
+        <img src="images/B11.jpeg" alt="Bild 12" />
+        <img src="images/B12.jpeg" alt="Bild 12" />
+        <img src="images/B13.jpeg" alt="Bild 13" />
+        <img src="images/B14.jpeg" alt="Bild 14" />
+        <img src="images/B15.jpeg" alt="Bild 15" />
+        <img src="images/B16.jpeg" alt="Bild 16" />
+        <img src="images/B17.jpeg" alt="Bild 17" />
+        <img src="images/B18.jpeg" alt="Bild 18" />
+        <img src="images/B19.jpeg" alt="Bild 19" />
+        <img src="images/B20.jpeg" alt="Bild 20" />
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer></footer>
+
+    <script>
+      // Password Protection mit localStorage
+      const correctPassword = "test123";
+      const passwordOverlay = document.getElementById("password-overlay");
+      const passwordInput = document.getElementById("password-input");
+      const passwordButton = document.getElementById("password-button");
+      const passwordError = document.getElementById("password-error");
+
+      // Prüfe, ob Passwort bereits bestätigt wurde
+      if (localStorage.getItem("passwordConfirmed") === "true") {
+        passwordOverlay.style.display = "none";
+      }
+
+      passwordButton.addEventListener("click", () => {
+        if (passwordInput.value === correctPassword) {
+          localStorage.setItem("passwordConfirmed", "true");
+          passwordOverlay.style.display = "none";
+        } else {
+          passwordError.style.display = "block";
+          passwordInput.value = "";
+        }
+      });
+
+      passwordInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          if (passwordInput.value === correctPassword) {
+            localStorage.setItem("passwordConfirmed", "true");
+            passwordOverlay.style.display = "none";
+          } else {
+            passwordError.style.display = "block";
+            passwordInput.value = "";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
