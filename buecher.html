@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="de">
   <head>
@@ -131,8 +133,9 @@
 
       .book-image {
         width: 100%;
-        height: 300px;
-        object-fit: cover;
+        height: auto; /* 🔹 ÄNDERUNG: Bilder werden nicht mehr beschnitten */
+        max-height: 500px; /* 🔹 Maximale Höhe, aber flexibel */
+        object-fit: contain; /* 🔹 Zeigt das ganze Bild (kein Zuschneiden) */
         display: block;
       }
 
@@ -215,7 +218,7 @@
           gap: 1.5rem;
         }
         .book-image {
-          height: 250px;
+          max-height: 400px; /* 🔹 Kleinere Höhe auf Mobile */
         }
         .button-container {
           justify-content: center;
@@ -275,7 +278,7 @@
           <img src="buecher/b1.jpeg" alt="Current Read" class="book-image">
           <figcaption class="book-caption">
             <h3>Current Read</h3>
-            <p>Ich habe es im Vorspann von Luca Guadagninos Film „Queer“ gesehen. Weil ich den Film so mag, wollte ich wissen, warum er auf dieses Buch verweist – und warum es wichtig für den Kontext ist.</p>
+            <p>Ich habe das Buch im Vorspann von Luca Guadagninos Film Queer gesehen. Weil ich den Film so mag, dessen Bildsprache, Szenerie, wollte ich wissen, warum er auf dieses Buch verweist. Was werde ich in dem Buch finden, das mir hilft, den Film noch besser zu verstehen?</p>
           </figcaption>
         </figure>
 
@@ -284,7 +287,7 @@
           <img src="buecher/b2.jpeg" alt="Favourite Read" class="book-image">
           <figcaption class="book-caption">
             <h3>Favourite Read</h3>
-            <p>Bis heute mein absolutes Lieblingsbuch und einer der schönsten Freundschaftsbeweise, der auch noch Millionen Menschen zutiefst erfreut. Man wird ins New York der 60er und 70er hineingezogen, und es kommt einem vor, als ob man neben Pattie stünde und alles hautnah miterlebt. Jahrzehnte später ist es einfach faszinierend, von allen zu lesen, denen sie im Alltag begegnete – so viele Menschen, deren Träume und Ziele sich erfüllten, Namen, die uns allen ein Begriff sind. Naja, und ein, zwei Persönlichkeiten des Club 27.</p>
+            <p>Bis heute mein absolutes Lieblingsbuch und einer der schönsten Freundschaftsbeweise. Man wird ins New York der 60er und 70er hineingezogen und es kommt einem vor, als ob man neben Pattie stünde und alles hautnah miterlebt. Jahrzehnte später ist es einfach faszinierend von allen Persönlichkeiten zu lesen denen sie im Alltag begegnete. So viele Menschen, deren Träume und Ziele sich erfüllten, Namen, die uns heute alle ein Begriff sind. Naja, und ein, zwei Persönlichkeiten des Club 27.</p>
           </figcaption>
         </figure>
 
@@ -293,8 +296,8 @@
           <img src="buecher/b3.jpeg" alt="Honorable Dislikes" class="book-image">
           <figcaption class="book-caption">
             <h3>Honorable Dislikes</h3>
-            <p>Also, ich habe das Buch privat begonnen zu lesen, weil es eben ein beliebter Klassiker ist. Ich habe festgestellt, dass es einfach nicht mein cup of tea ist. Ein Gefühl von Bestürzung erfasste mich, als ich es dann für den Englischunterricht lesen musste. Eine Zusammenfassung im Nachhinein zu schreiben – im Zeitalter des Internets – wäre zu einfach, wusste mein Lehrer. Also wollte er, dass wir unsere Meinung zu dem Buch schreiben. Ich hatte so gar keine Lust, das Buch zu lesen, ich kann es nicht in Worte fassen. Und tatsächlich habe ich es auch nicht getan: Ich habe mir das deutsche Hörbuch runtergeladen und parallel das englische Buch „gelesen“ (damit ich immer auf die korrekte Seite verweisen konnte ;) <span class="hashtag">#worksmartnothard</span>).</p>
-            <p>Long story short: Ich finde die Geschichte belanglos, und Daisy ist heute der naivste und nervigste Charakter, den ich je gelesen habe. Ich stehe zu meiner Meinung wie Reich-Ranicki – und sehr wahrscheinlich liege ich falsch mit meiner Interpretation… <em>but I don’t care, I said what I said!</em></p>
+            <p>Also, ich habe das Buch privat begonnen zu lesen, weil es eben ein beliebter Klassiker ist. Ich habe festgestellt,  es ist einfach nicht mein cup of tea ist. Ein Gefühl von Bestürzung erfasste mich als ich es dann für den Englischunterricht lesen musste. Eine Zusammenfassung im Nachhinein zu schreiben, im Zeitalter des Internets, wäre zu einfach wusste mein Lehrer. Also wollte er, dass wir unsere Meinung zu dem Buch in einer Hausarbeit aufschreiben. Ich hatte so gar keine Lust das Buch zu lesen. Und tatsächlich habe ich es auch nicht getan. Ich habe mir das deutsche Hörbuch runtergeladen und parallel das englische Buch „gelesen“ (damit ich immer auf die korrekten Seiten verweisen konnte 😉 <span class="hashtag">#worksmartnothard</span>).</p>
+            <p>Long story short: Ich finde die Geschichte belanglos und Daisy ist für mich ein absolut naiver und nerviger Charakter. Ich bin zwar nicht Reich-Ranicki… <em>but I said what I said!</em></p>
           </figcaption>
         </figure>
       </div>
