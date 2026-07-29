@@ -320,7 +320,7 @@ Ich hatte bereits im Vorfeld bei ARTE davon gehört, wie beeindruckend der Film 
           <img src="fs/s1.jpeg" alt="Emily in Paris" class="film-image">
           <figcaption class="film-caption">
             <h3>Emily in Paris</h3>
-            <p>Absolute, not guilty, Pleasure! Es muss auch nicht immer alles tiefgründig sein, um gut zu sein. Ich fühle mich absolut unterhalten – Feelgood auf die simpelste Weise, and I love it! Und was für ein Moment, als auf einmal Brigitte Macron wirklich im Bild stand. Marketing at its best. Ich werde die Serie vermissen, wenn dieses Jahr die letzte Staffel veröffentlicht wird.</p>
+            <p>Absolute, not guilty, Pleasure! Es muss auch nicht immer alles tiefgründig sein, um gut zu sein. Ich fühle mich absolut unterhalten, Feelgood auf die simpelste Weise, and I love it! Und was für ein Moment, als auf einmal Brigitte Macron wirklich im Bild stand. Marketing at its best. Ich werde die Serie vermissen wenn dieses Jahr die letzte Staffel veröffentlicht wird.</p>
           </figcaption>
         </figure>
 
@@ -328,8 +328,8 @@ Ich hatte bereits im Vorfeld bei ARTE davon gehört, wie beeindruckend der Film 
           <img src="fs/s2.jpeg" alt="Love, Death & Robots" class="film-image">
           <figcaption class="film-caption">
             <h3>Love, Death & Robots</h3>
-            <p>In einer Folge will ein Joghurt die Weltherrschaft an sich reißen – wie erklärt man jemanden, dass das wirklich eine tolle Serie ist?
-Ich liebe die Vielfalt der Serie: von lustig über optisch beeindruckend bis philosophisch. Die Serie hat mich motiviert, offen für avantgardistische Stile zu sein.</p>
+            <p>In einer Folge will ein Joghurt die Weltherrschaft an sich reißen, wie erklärt man jemanden, dass das wirklich eine tolle Serie ist?
+Ich liebe die Vielfalt der Serie, von lustig über optisch beeindruckend bis philosophisch. Die Serie hat mich motiviert, offen für avantgardistische Stile zu sein.</p>
           </figcaption>
         </figure>
 
@@ -337,7 +337,7 @@ Ich liebe die Vielfalt der Serie: von lustig über optisch beeindruckend bis phi
           <img src="fs/s3.jpeg" alt="Ramy" class="film-image">
           <figcaption class="film-caption">
             <h3>Ramy</h3>
-            <p>Ein Freund hat mir die Serie empfohlen, und sie hat mich nicht enttäuscht. Ich war beeindruckt davon, wie unterhaltsam und lustig kulturelle Klischees und Vorurteile aus unterschiedlichen Perspektiven thematisiert wurden – aber auch, wie eindrucksvoll die Zerrissenheit des Protagonisten gezeigt wurde. Ich denke, es ist eine Serie, in der sich viele Menschen mehr oder weniger wiedererkennen können – oder ihre Freunde.</p>
+            <p>Ein Freund hat mir die Serie empfohlen und sie hat mich nicht enttäuscht. Ich war beeindruckt davon wie unterhaltsam und lustig kulturelle Klischees und Vorurteile aus unterschiedlichen Perspektiven thematisiert wurden. Aber auch wie eindrucksvoll die Zerrissenheit des Protagonisten gezeigt wurde. Ich denke, es ist eine Serie in der sich viele Menschen mehr oder weniger wiedererkennen können oder ihre Freunde.</p>
           </figcaption>
         </figure>
       </div>
@@ -351,7 +351,24 @@ Ich liebe die Vielfalt der Serie: von lustig über optisch beeindruckend bis phi
     <!-- Footer -->
     <footer></footer>
 
+    <!-- Hintergrundmusik (automatische Wiedergabe, unsichtbar) -->
+    <iframe
+      width="0"
+      height="0"
+      src="https://www.youtube.com/embed/KQT32vW61eI?autoplay=1&loop=1&controls=0&showinfo=0&rel=0&enablejsapi=1"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+
     <script>
+      // Autoplay für Hintergrundmusik erzwingen
+      document.addEventListener('DOMContentLoaded', function() {
+        const iframe = document.querySelector('iframe');
+        iframe.src += '&mute=1'; // Standardmäßig stumm, um Autoplay-Blocker zu umgehen
+      });
+
+      // Passwortschutz
       if (localStorage.getItem("passwordConfirmed") !== "true") {
         window.location.href = "index.html";
       }
