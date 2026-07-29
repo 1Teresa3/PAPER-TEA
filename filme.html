@@ -25,7 +25,7 @@
         font-family: var(--font-primary);
         background-color: var(--primary-color);
         color: var(--text-color);
-        line-height: 1.6;
+        line-height: 1.8;
         overflow-x: hidden;
       }
 
@@ -108,27 +108,58 @@
         text-align: left;
       }
 
-      /* Gallery Layout */
-      .gallery-row {
-        display: flex;
-        gap: 1.5rem;
-        margin-bottom: 2rem;
-        flex-wrap: wrap;
+      /* Filme-Galerie (identisch zu Bücher-Galerie) */
+      .films-gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin: 2rem 0;
       }
 
-      .gallery-image {
-        width: calc(33.33% - 1rem);
+      .film-card {
+        background-color: var(--secondary-color);
         border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        object-fit: cover;
-        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s, box-shadow 0.3s;
       }
 
-      .gallery-text {
-        font-size: 1rem;
+      .film-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .film-image {
+        width: 100%;
+        height: auto;
+        max-height: 500px;
+        object-fit: contain;
+        display: block;
+      }
+
+      .film-caption {
+        padding: 1.5rem;
+        text-align: left;
+      }
+
+      .film-caption h3 {
+        font-family: var(--font-secondary);
+        font-size: 1.3rem;
         color: var(--dark-text);
-        line-height: 1.8;
-        margin-bottom: 2rem;
+        margin-bottom: 0.8rem;
+        font-weight: 400;
+      }
+
+      .film-caption p {
+        font-size: 0.95rem;
+        color: var(--text-color);
+        line-height: 1.7;
+        margin-bottom: 0.8rem;
+      }
+
+      .hashtag {
+        color: var(--accent-color);
+        font-weight: 500;
       }
 
       .placeholder-text {
@@ -140,7 +171,7 @@
       .button-container {
         display: flex;
         justify-content: flex-start;
-        margin-top: 1rem;
+        margin-top: 2rem;
       }
 
       .button {
@@ -169,6 +200,7 @@
         border-top: 1px solid #dcd6cc;
       }
 
+      /* Animation */
       @keyframes marquee {
         0% { transform: translateX(0); }
         100% { transform: translateX(-50%); }
@@ -180,27 +212,24 @@
           flex-direction: column;
           gap: 1rem;
         }
-
         .marquee-content span {
           font-size: 0.9rem;
           margin-right: 1.5rem;
         }
-
-        .gallery-row {
-          flex-direction: column;
-          gap: 1rem;
+        .films-gallery {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
         }
-
-        .gallery-image {
-          width: 100%;
+        .film-image {
+          max-height: 400px;
         }
-
         .button-container {
           justify-content: center;
         }
       }
     </style>
   </head>
+
   <body>
     <!-- Top Banner -->
     <div class="top-banner">
@@ -217,17 +246,27 @@
     <!-- Marquee Banner -->
     <div class="marquee-container">
       <div class="marquee-content">
-        <span>🎬 Liebt es, Filme in Originalsprache zu schauen</span>
-        <span>🍿 Hat eine Schwäche für französische Arthouse-Filme</span>
-        <span>🎥 Träumt davon, mal ein eigenes Kurzfilmprojekt zu starten</span>
-        <span>📽️ Findet, dass die besten Geschichten im Kino erzählt werden</span>
-        <span>🌍 Schaut gerne internationale Filmfestivals online</span>
+        <span>🤸🏻 mag es morgens zum Sport zu gehen</span>
+        <span>🎨 Hat geweint als sie „Frau mit Schirm“ von Monet in echt gesehen hat</span>
+        <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
+        <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
+        <span>💖 Ist stolz darauf wer ihre Freunde sind</span>
+        <span>💭 Ist der Meinung Neid ist ein falsch verstandenes Gefühl</span>
+        <span>🎙️ Bevorzugt Podcasts über Wirtschaftskriminalität</span>
+        <span>🍜 Bestellt bei Marubi immer die 71</span>
+        <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
+        <span>🧀 J'aime le fromage</span>
         <!-- Wiederholung für nahtlosen Übergang -->
-        <span>🎬 Liebt es, Filme in Originalsprache zu schauen</span>
-        <span>🍿 Hat eine Schwäche für französische Arthouse-Filme</span>
-        <span>🎥 Träumt davon, mal ein eigenes Kurzfilmprojekt zu starten</span>
-        <span>📽️ Findet, dass die besten Geschichten im Kino erzählt werden</span>
-        <span>🌍 Schaut gerne internationale Filmfestivals online</span>
+        <span>🤸🏻 mag es morgens zum Sport zu gehen</span>
+        <span>🎨 Hat geweint als sie „Frau mit Schirm“ von Monet in echt gesehen hat</span>
+        <span>🚧 Musste lernen Grenzen zu setzen und dafür einzustehen</span>
+        <span>🌙 Liebt es in den Nachthimmel zu schauen</span>
+        <span>💖 Ist stolz darauf wer ihre Freunde sind</span>
+        <span>💭 Ist der Meinung Neid ist ein falsch verstandenes Gefühl</span>
+        <span>🎙️ Bevorzugt Podcasts über Wirtschaftskriminalität</span>
+        <span>🍜 Bestellt bei Marubi immer die 71</span>
+        <span>📻 Ist ein Fan von Deutschlandfunk und ARTE</span>
+        <span>🧀 J'aime le fromage</span>
       </div>
     </div>
 
@@ -235,26 +274,61 @@
     <main>
       <h1 class="page-title">Filme</h1>
 
-      <!-- Erste Bilderreihe -->
-      <div class="gallery-row">
-        <img src="fs/f1.jpeg" alt="Film 1" class="gallery-image" />
-        <img src="fs/f2.jpeg" alt="Film 2" class="gallery-image" />
-        <img src="fs/f3.jpeg" alt="Film 3" class="gallery-image" />
-      </div>
-      <p class="gallery-text placeholder-text">
-        Platzhalter-Text für die erste Reihe mit Filmen. Hier könnte eine Beschreibung der gezeigten Filme oder eine persönliche Note stehen.
-      </p>
+      <!-- Filme-Galerie - Erste Reihe (f1, f2, f3) -->
+      <div class="films-gallery">
+        <figure class="film-card">
+          <img src="fs/f1.jpeg" alt="Film 1" class="film-image">
+          <figcaption class="film-caption">
+            <h3>Platzhalter Titel</h3>
+            <p class="placeholder-text">Hier könnte eine Beschreibung des Films stehen. Vielleicht eine persönliche Empfehlung oder eine Anekdote dazu.</p>
+          </figcaption>
+        </figure>
 
-      <!-- Zweite Bilderreihe -->
-      <div class="gallery-row">
-        <img src="fs/f4.jpeg" alt="Film 4" class="gallery-image" />
-        <img src="fs/f5.jpeg" alt="Film 5" class="gallery-image" />
-        <img src="fs/f6.jpeg" alt="Film 6" class="gallery-image" />
-      </div>
-      <p class="gallery-text placeholder-text">
-        Platzhalter-Text für die zweite Reihe. Vielleicht eine Anekdote oder eine Empfehlung zu diesen Filmen.
-      </p>
+        <figure class="film-card">
+          <img src="fs/f2.jpeg" alt="Film 2" class="film-image">
+          <figcaption class="film-caption">
+            <h3>Platzhalter Titel</h3>
+            <p class="placeholder-text">Beschreibung für den zweiten Film. Erkläre, warum dieser Film besonders ist.</p>
+          </figcaption>
+        </figure>
 
+        <figure class="film-card">
+          <img src="fs/f3.jpeg" alt="Film 3" class="film-image">
+          <figcaption class="film-caption">
+            <h3>Platzhalter Titel</h3>
+            <p class="placeholder-text">Text über den dritten Film. Vielleicht eine Verbindung zu deinen eigenen Erfahrungen.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Filme-Galerie - Zweite Reihe (s1, s2, s3) -->
+      <div class="films-gallery">
+        <figure class="film-card">
+          <img src="fs/s1.jpeg" alt="Film 4" class="film-image">
+          <figcaption class="film-caption">
+            <h3>Platzhalter Titel</h3>
+            <p class="placeholder-text">Beschreibung für den vierten Film. Füge hier Details hinzu, die Leser neugierig machen.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="film-card">
+          <img src="fs/s2.jpeg" alt="Film 5" class="film-image">
+          <figcaption class="film-caption">
+            <h3>Platzhalter Titel</h3>
+            <p class="placeholder-text">Hier könnte stehen, warum dieser Film in deiner Sammlung nicht fehlen darf.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="film-card">
+          <img src="fs/s3.jpeg" alt="Film 6" class="film-image">
+          <figcaption class="film-caption">
+            <h3>Platzhalter Titel</h3>
+            <p class="placeholder-text">Letzter Platzhalter-Text. Ersetze mich mit deinem eigenen Inhalt.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Zurück-Button -->
       <div class="button-container">
         <a href="index.html" class="button">Zurück zur Hauptseite</a>
       </div>
