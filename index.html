@@ -402,37 +402,41 @@ um euch mein „Können“ zu zeigen, hatte ich ursprünglich eine Canvas-Präse
     <footer></footer>
 
     <script>
-      // Password Protection mit localStorage
+      // Password Protection mit sessionStorage
       const correctPassword = "Kamillentee";
       const passwordOverlay = document.getElementById("password-overlay");
       const passwordInput = document.getElementById("password-input");
       const passwordButton = document.getElementById("password-button");
       const passwordError = document.getElementById("password-error");
 
-      // Prüfe, ob Passwort bereits bestätigt wurde
-      if (localStorage.getItem("passwordConfirmed") === "true") {
+      // Prüfe, ob Passwort bereits bestätigt wurde (sessionStorage)
+      if (sessionStorage.getItem("passwordConfirmed") === "true") {
         passwordOverlay.style.display = "none";
       }
 
-      passwordButton.addEventListener("click", () => {
+      // Fehlermeldung ausblenden bei Eingabe
+      passwordInput.addEventListener("input", () => {
+        passwordError.style.display = "none";
+      });
+
+      // Passwortprüfung (wird bei Button-Klick und Enter-Taste aufgerufen)
+      const checkPassword = () => {
         if (passwordInput.value === correctPassword) {
-          localStorage.setItem("passwordConfirmed", "true");
+          sessionStorage.setItem("passwordConfirmed", "true");
           passwordOverlay.style.display = "none";
         } else {
           passwordError.style.display = "block";
           passwordInput.value = "";
         }
-      });
+      };
 
+      // Button-Klick
+      passwordButton.addEventListener("click", checkPassword);
+
+      // Enter-Taste
       passwordInput.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
-          if (passwordInput.value === correctPassword) {
-            localStorage.setItem("passwordConfirmed", "true");
-            passwordOverlay.style.display = "none";
-          } else {
-            passwordError.style.display = "block";
-            passwordInput.value = "";
-          }
+          checkPassword();
         }
       });
     </script>
